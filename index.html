@@ -9,6 +9,7 @@
     />
     <meta name="theme-color" content="#0a0e17" />
     <title>Rishabh Gupta · DevOps &amp; Cloud</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,18 +17,25 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FF9900'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='13' fill='%230a0e17' font-family='system-ui,sans-serif' font-weight='800'%3ERG%3C/text%3E%3C/svg%3E"
-    />
   </head>
   <body>
+    <div class="bg-mesh" aria-hidden="true">
+      <span class="orb orb--a"></span>
+      <span class="orb orb--b"></span>
+      <span class="orb orb--c"></span>
+    </div>
+    <div class="grid-fade" aria-hidden="true"></div>
+
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap header-inner">
-        <a class="logo" href="#"><span class="logo-mono">RG</span> Rishabh Gupta</a>
+        <a class="logo" href="#top" aria-label="Rishabh Gupta — home">
+          <span class="logo-glow"></span>
+          <span class="logo-text">Rishabh Gupta</span>
+        </a>
         <nav class="nav" aria-label="Primary">
           <a href="#summary">Summary</a>
+          <a href="#tools">Tools</a>
           <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
           <a href="#credentials">Credentials</a>
@@ -40,35 +48,45 @@
       <section class="hero" id="top">
         <div class="wrap hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">DevOps · Cloud · Platform reliability</p>
-            <h1 class="hero-title">Rishabh Gupta</h1>
-            <p class="hero-sub">Lead DevOps Engineer · AWS Solutions Architect Associate</p>
-            <p class="lede">
+            <p class="eyebrow hero-in hero-in--1">DevOps · Cloud · Platform reliability</p>
+            <h1 class="hero-title hero-in hero-in--2">
+              <span class="hero-name">Rishabh</span>
+              <span class="hero-name hero-name--accent">Gupta</span>
+            </h1>
+            <p class="hero-sub hero-in hero-in--3">Lead DevOps Engineer · AWS Solutions Architect Associate</p>
+            <p class="lede hero-in hero-in--4">
               Dedicated engineer with <strong>4.6+ years</strong> across DevOps, cloud, and
               automation — designing scalable AWS estates, hardened CI/CD, Kubernetes
               operations, and observability for high-traffic platforms.
             </p>
-            <ul class="badge-row" aria-label="Highlights">
+            <ul class="badge-row hero-in hero-in--5" aria-label="Highlights">
               <li>AWS SAA</li>
               <li>Kubernetes &amp; GitOps</li>
               <li>24×7 production on-call</li>
             </ul>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="Rishabh_DevOps_4.pdf" download>Download CV (PDF)</a>
+            <div class="hero-actions hero-in hero-in--6">
+              <a class="btn btn-primary btn-shine" href="Rishabh_DevOps_4.pdf" download>Download CV (PDF)</a>
               <a class="btn btn-ghost" href="#contact">Contact</a>
               <a class="btn btn-ghost" href="https://www.linkedin.com/in/rgrishabh" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
-          <aside class="hero-aside" aria-label="At a glance">
-            <div class="stat-card">
+          <aside class="hero-aside hero-in hero-in--3" aria-label="At a glance">
+            <div class="pipeline-deco" aria-hidden="true">
+              <span class="pipeline-node pipeline-node--pulse"></span>
+              <span class="pipeline-line"></span>
+              <span class="pipeline-node"></span>
+              <span class="pipeline-line pipeline-line--delay"></span>
+              <span class="pipeline-node pipeline-node--pulse"></span>
+            </div>
+            <div class="stat-card float-card">
               <span class="stat-label">Focus</span>
               <p class="stat-value">CI/CD, K8s, observability, cloud security</p>
             </div>
-            <div class="stat-card">
+            <div class="stat-card float-card float-card--delay">
               <span class="stat-label">Scale</span>
               <p class="stat-value">Mission-critical infra · <strong>100M+</strong> users served</p>
             </div>
-            <div class="stat-card">
+            <div class="stat-card float-card float-card--delay2">
               <span class="stat-label">Enterprise tooling</span>
               <p class="stat-value">GitHub Enterprise, Jira &amp; Confluence Data Center</p>
             </div>
@@ -76,7 +94,108 @@
         </div>
       </section>
 
-      <section class="section section-alt" id="summary">
+      <section class="section section-tight section-alt reveal" id="tools" aria-labelledby="tools-heading">
+        <div class="wrap">
+          <header class="section-head section-head--center">
+            <h2 id="tools-heading">Platforms &amp; tools</h2>
+            <p>Logos represent technologies from production work — trademarks belong to their owners.</p>
+          </header>
+          <div class="logo-marquee" role="region" aria-label="Technology logos" data-marquee>
+            <div class="logo-marquee__track">
+              <ul class="logo-marquee__list">
+                <li>
+                  <span class="logo-tile" title="Amazon Web Services">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/amazonaws.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
+                    <span class="sr-only">Amazon Web Services</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="logo-tile" title="Kubernetes">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/kubernetes.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
+                    <span class="sr-only">Kubernetes</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="logo-tile" title="Docker">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/docker.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
+                    <span class="sr-only">Docker</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="logo-tile" title="Terraform">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/terraform.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
+                    <span class="sr-only">Terraform</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="logo-tile" title="Jenkins">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/jenkins.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
+                    <span class="sr-only">Jenkins</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="logo-tile" title="GitHub">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/github.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
+                    <span class="sr-only">GitHub</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="logo-tile" title="Prometheus">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/prometheus.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
+                    <span class="sr-only">Prometheus</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="logo-tile" title="Grafana">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/grafana.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
+                    <span class="sr-only">Grafana</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="logo-tile" title="Argo CD">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/argo.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
+                    <span class="sr-only">Argo CD</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="logo-tile" title="Elasticsearch">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/elasticsearch.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
+                    <span class="sr-only">Elasticsearch</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="logo-tile" title="Linux">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/linux.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
+                    <span class="sr-only">Linux</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="logo-tile" title="Git">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/git.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
+                    <span class="sr-only">Git</span>
+                  </span>
+                </li>
+              </ul>
+              <ul class="logo-marquee__list logo-marquee__list--clone" aria-hidden="true">
+                <li><span class="logo-tile"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/amazonaws.svg" alt="" width="36" height="36" loading="lazy" decoding="async" /></span></li>
+                <li><span class="logo-tile"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/kubernetes.svg" alt="" width="36" height="36" loading="lazy" decoding="async" /></span></li>
+                <li><span class="logo-tile"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/docker.svg" alt="" width="36" height="36" loading="lazy" decoding="async" /></span></li>
+                <li><span class="logo-tile"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/terraform.svg" alt="" width="36" height="36" loading="lazy" decoding="async" /></span></li>
+                <li><span class="logo-tile"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/jenkins.svg" alt="" width="36" height="36" loading="lazy" decoding="async" /></span></li>
+                <li><span class="logo-tile"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/github.svg" alt="" width="36" height="36" loading="lazy" decoding="async" /></span></li>
+                <li><span class="logo-tile"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/prometheus.svg" alt="" width="36" height="36" loading="lazy" decoding="async" /></span></li>
+                <li><span class="logo-tile"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/grafana.svg" alt="" width="36" height="36" loading="lazy" decoding="async" /></span></li>
+                <li><span class="logo-tile"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/argo.svg" alt="" width="36" height="36" loading="lazy" decoding="async" /></span></li>
+                <li><span class="logo-tile"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/elasticsearch.svg" alt="" width="36" height="36" loading="lazy" decoding="async" /></span></li>
+                <li><span class="logo-tile"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/linux.svg" alt="" width="36" height="36" loading="lazy" decoding="async" /></span></li>
+                <li><span class="logo-tile"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.6.0/icons/git.svg" alt="" width="36" height="36" loading="lazy" decoding="async" /></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt reveal" id="summary">
         <div class="wrap narrow">
           <header class="section-head">
             <h2>Professional summary</h2>
@@ -89,14 +208,14 @@
         </div>
       </section>
 
-      <section class="section" id="skills">
+      <section class="section reveal" id="skills">
         <div class="wrap">
           <header class="section-head">
             <h2>Skills</h2>
             <p>Stack drawn from live production and enterprise environments.</p>
           </header>
           <div class="skill-grid">
-            <article class="skill-block">
+            <article class="skill-block tilt-hover">
               <h3>Cloud &amp; infrastructure</h3>
               <ul class="chips">
                 <li>AWS</li>
@@ -117,7 +236,7 @@
                 <li>GuardDuty</li>
               </ul>
             </article>
-            <article class="skill-block">
+            <article class="skill-block tilt-hover">
               <h3>DevOps &amp; CI/CD</h3>
               <ul class="chips">
                 <li>Jenkins</li>
@@ -130,7 +249,7 @@
                 <li>Maven</li>
               </ul>
             </article>
-            <article class="skill-block">
+            <article class="skill-block tilt-hover">
               <h3>Containers &amp; IaC</h3>
               <ul class="chips">
                 <li>Docker</li>
@@ -139,7 +258,7 @@
                 <li>Linux</li>
               </ul>
             </article>
-            <article class="skill-block">
+            <article class="skill-block tilt-hover">
               <h3>Observability &amp; incidents</h3>
               <ul class="chips">
                 <li>Prometheus</li>
@@ -158,14 +277,14 @@
         </div>
       </section>
 
-      <section class="section section-alt" id="experience">
+      <section class="section section-alt reveal" id="experience">
         <div class="wrap">
           <header class="section-head">
             <h2>Experience</h2>
             <p>Selected roles aligned with your résumé.</p>
           </header>
           <ol class="timeline">
-            <li class="timeline-item">
+            <li class="timeline-item tilt-hover">
               <div class="timeline-meta">
                 <span class="timeline-date">Aug 2024 — Present</span>
                 <span class="timeline-loc">Noida, Uttar Pradesh</span>
@@ -196,7 +315,7 @@
                 </ul>
               </div>
             </li>
-            <li class="timeline-item">
+            <li class="timeline-item tilt-hover">
               <div class="timeline-meta">
                 <span class="timeline-date">Apr 2024 — Jul 2025</span>
                 <span class="timeline-loc">Greater Noida, Uttar Pradesh</span>
@@ -217,7 +336,7 @@
                 </ul>
               </div>
             </li>
-            <li class="timeline-item">
+            <li class="timeline-item tilt-hover">
               <div class="timeline-meta">
                 <span class="timeline-date">Jan 2024 — Apr 2024</span>
                 <span class="timeline-loc">Noida, Uttar Pradesh</span>
@@ -227,7 +346,7 @@
                 <p class="timeline-role">Freelance · DevOps Engineer</p>
               </div>
             </li>
-            <li class="timeline-item">
+            <li class="timeline-item tilt-hover">
               <div class="timeline-meta">
                 <span class="timeline-date">Jul 2022 — Dec 2023</span>
                 <span class="timeline-loc">Pune, Maharashtra</span>
@@ -237,7 +356,7 @@
                 <p class="timeline-role">Jr. DevOps Engineer</p>
               </div>
             </li>
-            <li class="timeline-item">
+            <li class="timeline-item tilt-hover">
               <div class="timeline-meta">
                 <span class="timeline-date">Sept 2021 — May 2022</span>
                 <span class="timeline-loc">Chennai, Tamil Nadu</span>
@@ -251,9 +370,9 @@
         </div>
       </section>
 
-      <section class="section" id="credentials">
+      <section class="section reveal" id="credentials">
         <div class="wrap cred-grid">
-          <article class="cred-card">
+          <article class="cred-card tilt-hover">
             <header class="section-head section-head--tight">
               <h2>Certifications</h2>
             </header>
@@ -264,7 +383,7 @@
               </li>
             </ul>
           </article>
-          <article class="cred-card">
+          <article class="cred-card tilt-hover">
             <header class="section-head section-head--tight">
               <h2>Education</h2>
             </header>
@@ -284,7 +403,7 @@
         </div>
       </section>
 
-      <section class="section section-alt" id="contact">
+      <section class="section section-alt reveal" id="contact">
         <div class="wrap contact">
           <h2>Contact</h2>
           <p class="contact-lead">Open to roles and collaborations in DevOps, platform, and cloud architecture.</p>
@@ -307,7 +426,7 @@
             </li>
           </ul>
           <p class="contact-cta">
-            <a class="btn btn-primary" href="Rishabh_DevOps_4.pdf" download>Download CV (PDF)</a>
+            <a class="btn btn-primary btn-shine" href="Rishabh_DevOps_4.pdf" download>Download CV (PDF)</a>
           </p>
         </div>
       </section>
@@ -315,11 +434,39 @@
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <p>© <span id="year"></span> Rishabh Gupta. Built with static HTML for GitHub Pages.</p>
+        <p>© <span id="year"></span> Rishabh Gupta</p>
       </div>
     </footer>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      document.querySelectorAll(".reveal").forEach(function (el) {
+        el.classList.add("reveal--pending");
+      });
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!reduceMotion) {
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("reveal--visible");
+                entry.target.classList.remove("reveal--pending");
+              }
+            });
+          },
+          { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
+        );
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          el.classList.add("reveal--visible");
+          el.classList.remove("reveal--pending");
+        });
+      }
     </script>
   </body>
 </html>
