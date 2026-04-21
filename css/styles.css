@@ -211,6 +211,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   background: var(--header-bg);
   border-bottom: 1px solid var(--border);
@@ -480,14 +481,6 @@ html[data-theme="light"] .theme-icon--moon {
 .lede strong {
   color: var(--text);
   font-weight: 600;
-}
-
-.lede-note {
-  display: block;
-  margin-top: 0.65rem;
-  font-size: 0.82em;
-  color: var(--muted);
-  font-weight: 400;
 }
 
 .badge-row {
@@ -1190,15 +1183,6 @@ html[data-theme="light"] .chips li {
 
 .bento-desc--tight {
   max-width: 28ch;
-}
-
-.bento-foot {
-  margin: 0.75rem 0 0;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  color: var(--muted);
-  opacity: 0.9;
 }
 
 .playbook-grid {

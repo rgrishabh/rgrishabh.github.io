@@ -15,7 +15,10 @@
           var stored = localStorage.getItem("portfolio-theme");
           if (stored === "light" || stored === "dark") {
             document.documentElement.setAttribute("data-theme", stored);
-          } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+          } else if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: light)").matches
+          ) {
             document.documentElement.setAttribute("data-theme", "light");
           }
         } catch (e) {}
@@ -94,7 +97,6 @@
               Dedicated engineer with <strong><span id="exp-hero">—</span></strong> across DevOps, cloud, and
               automation — designing scalable AWS estates, hardened CI/CD, Kubernetes
               operations, and observability for high-traffic platforms.
-              <span class="lede-note">Experience counted from <time datetime="2021-09-01">September&nbsp;2021</time> (years + full months).</span>
             </p>
             <ul class="badge-row hero-in hero-in--5" aria-label="Highlights">
               <li>AWS SAA</li>
@@ -135,7 +137,7 @@
         <div class="wrap">
           <header class="section-head section-head--center">
             <h2 id="tools-heading">Platforms &amp; tools</h2>
-            <p>Logos represent technologies from production work — trademarks belong to their owners.</p>
+            <p>Tools used in production; logos are trademarks of their owners.</p>
           </header>
           <div class="logo-marquee" role="region" aria-label="Technology logos" data-marquee>
             <div class="logo-marquee__track">
@@ -249,12 +251,12 @@
         <div class="wrap">
           <header class="section-head">
             <h2 id="spotlight-heading">Highlights</h2>
-            <p>Snapshot numbers and focus areas — the kind of signal recruiters and hiring managers scan first.</p>
+            <p>Numbers and focus areas at a glance.</p>
           </header>
           <div class="bento">
             <article class="bento-card bento-card--wide tilt-hover">
               <span class="bento-kicker">Experience</span>
-              <div class="bento-stat-ym" role="group" aria-label="Time in role since September 2021">
+              <div class="bento-stat-ym" role="group" aria-label="Years and months of experience">
                 <div class="bento-stat-ym__part">
                   <span id="exp-bento-y" class="bento-stat-ym__num">—</span>
                   <span class="bento-stat-ym__sub">yrs</span>
@@ -266,7 +268,6 @@
                 </div>
               </div>
               <p class="bento-desc">Shipping and operating cloud-native platforms across product and enterprise contexts.</p>
-              <p class="bento-foot"><time datetime="2021-09-01">Since Sept 2021</time> · updates daily</p>
             </article>
             <article class="bento-card tilt-hover">
               <span class="bento-kicker">Certification</span>
@@ -296,7 +297,7 @@
         <div class="wrap">
           <header class="section-head">
             <h2>Skills</h2>
-            <p>Stack drawn from live production and enterprise environments.</p>
+            <p>Production-focused stack.</p>
           </header>
           <div class="skill-grid">
             <article class="skill-block tilt-hover">
@@ -365,7 +366,7 @@
         <div class="wrap">
           <header class="section-head">
             <h2>Experience</h2>
-            <p>Selected roles aligned with your résumé.</p>
+            <p>Recent roles.</p>
           </header>
           <ol class="timeline">
             <li class="timeline-item tilt-hover">
@@ -428,6 +429,24 @@
               <div class="timeline-body">
                 <h3>Avani Ecocare</h3>
                 <p class="timeline-role">Freelance · DevOps Engineer</p>
+                <ul class="bullet-list">
+                  <li>
+                    Hardened <strong>Linux</strong> hosts and patch cadence for a small footprint of internal apps and
+                    customer-facing forms.
+                  </li>
+                  <li>
+                    Containerised services with <strong>Docker</strong> and scripted deploys so releases were repeatable
+                    instead of one-off SSH sessions.
+                  </li>
+                  <li>
+                    Put <strong>Nginx</strong> in front with TLS, gzip, and caching headers; documented backup/restore for
+                    databases and uploads.
+                  </li>
+                  <li>
+                    Added disk and queue checks plus basic <strong>MySQL</strong> tuning so the team caught capacity issues
+                    before users did.
+                  </li>
+                </ul>
               </div>
             </li>
             <li class="timeline-item tilt-hover">
@@ -438,6 +457,24 @@
               <div class="timeline-body">
                 <h3>Codewalla Software Development</h3>
                 <p class="timeline-role">Jr. DevOps Engineer</p>
+                <ul class="bullet-list">
+                  <li>
+                    Kept <strong>Jenkins</strong> pipelines healthy for multiple client codebases: branch builds, artifact
+                    promotion to QA/staging, and failure alerts in Slack.
+                  </li>
+                  <li>
+                    Helped developers with <strong>Docker</strong> and compose-based dev environments that matched shared
+                    staging namespaces on <strong>Kubernetes</strong>.
+                  </li>
+                  <li>
+                    Chased flaky builds (<strong>Gradle</strong>/<strong>Maven</strong>, dependency caches, agent disk) and
+                    rotated credentials where CI touched cloud sandboxes.
+                  </li>
+                  <li>
+                    Wrote small <strong>bash</strong>/<strong>Python</strong> utilities for log rotation, env bootstrapping, and
+                    housekeeping on <strong>AWS</strong> non-prod accounts (S3, EC2).
+                  </li>
+                </ul>
               </div>
             </li>
             <li class="timeline-item tilt-hover">
@@ -448,6 +485,24 @@
               <div class="timeline-body">
                 <h3>Purchasing Power LLC</h3>
                 <p class="timeline-role">Site Ops Engineer · Intern</p>
+                <ul class="bullet-list">
+                  <li>
+                    Watched scheduled jobs and file drops for retail-finance flows; opened tickets with logs, timestamps,
+                    and blast radius when something looked off.
+                  </li>
+                  <li>
+                    Helped roll out <strong>Windows</strong> and <strong>Linux</strong> patches during change windows, using
+                    checklists from senior ops for reboot order and smoke tests.
+                  </li>
+                  <li>
+                    Ran documented <strong>IIS</strong> / app-pool recycle and release steps for evening deploys after QA
+                    sign-off.
+                  </li>
+                  <li>
+                    Sat in on incident bridges for payment services and captured timelines and customer impact for
+                    hand-off notes.
+                  </li>
+                </ul>
               </div>
             </li>
           </ol>
@@ -458,10 +513,7 @@
         <div class="wrap">
           <header class="section-head">
             <h2 id="playbook-heading">Playbook</h2>
-            <p>
-              How I collaborate and keep growing — inspired by the way strong platform and DevOps profiles tell a story
-              beyond tool names alone.
-            </p>
+            <p>Principles I stick to on platform and delivery work.</p>
           </header>
           <div class="playbook-grid">
             <div class="playbook-col">
@@ -534,7 +586,7 @@
         <div class="wrap">
           <header class="section-head">
             <h2 id="background-heading">Education &amp; certifications</h2>
-            <p>Formal credentials and academic path — everything you would expect in a background check, in one place.</p>
+            <p>Academic record and AWS certification.</p>
           </header>
           <div class="cred-grid">
             <article class="cred-card tilt-hover">
@@ -578,8 +630,8 @@
                 <p class="contact-eyebrow">Let’s talk</p>
                 <h2 id="contact-heading" class="contact-title">Build reliable systems together</h2>
                 <p class="contact-lead">
-                  Open to DevOps, platform, and cloud architecture roles — remote-first or hybrid. Send a note with the
-                  stack, team size, and what “done” looks like; I’ll respond with honesty about fit.
+                  Open to DevOps, platform, and cloud roles — remote-first or hybrid. A short note with stack and scope is
+                  enough to start.
                 </p>
                 <div class="contact-pulse" aria-hidden="true">
                   <span class="contact-pulse__ring"></span>
@@ -588,7 +640,7 @@
                 </div>
                 <p class="contact-meta">
                   <span class="contact-meta__dot"></span>
-                  India · <span id="exp-contact-blurb">In the field since Sept 2021</span> · typically replies within a few days
+                  India · <span id="exp-contact-blurb">Hands-on in production environments</span> · typically replies within a few days
                 </p>
                 <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
               </div>
@@ -648,7 +700,7 @@
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <p>© <span id="year"></span> Rishabh Gupta</p>
-        <p class="footer-note">Theme follows your choice and saves on this device.</p>
+        <p class="footer-note">Light/dark preference is stored in this browser.</p>
       </div>
     </footer>
     <script>
@@ -682,9 +734,12 @@
         syncMeta();
         if (btn) btn.setAttribute("aria-pressed", root.getAttribute("data-theme") === "light" ? "true" : "false");
 
-        document.getElementById("year").textContent = new Date().getFullYear();
+        var yearEl = document.getElementById("year");
+        if (yearEl) {
+          yearEl.textContent = String(new Date().getFullYear());
+        }
 
-        /** Calendar difference from Sept 1, 2021 → today (years + months, not a decimal). */
+        /* Tenure display: calendar months from internal anchor date (not shown in UI). */
         function experienceSinceSept2021() {
           var start = new Date(2021, 8, 1);
           var now = new Date();
@@ -725,8 +780,47 @@
         if (bentoY) bentoY.textContent = String(exp.years);
         if (bentoM) bentoM.textContent = String(exp.months);
         if (contactBlurb) {
-          contactBlurb.textContent =
-            expWords + " in production roles (since Sept 2021)";
+          contactBlurb.textContent = expWords + " in production-facing roles";
+        }
+
+        function copyTextToClipboard(text, onDone) {
+          function fallbackExecCommand() {
+            var ta = document.createElement("textarea");
+            var ok = false;
+            ta.value = text;
+            ta.setAttribute("readonly", "");
+            ta.style.cssText = "position:fixed;left:-9999px;top:0;opacity:0";
+            document.body.appendChild(ta);
+            ta.focus();
+            if (ta.setSelectionRange) {
+              ta.setSelectionRange(0, text.length);
+            } else {
+              ta.select();
+            }
+            try {
+              ok = document.execCommand("copy");
+            } catch (ex) {}
+            document.body.removeChild(ta);
+            onDone(ok);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            try {
+              var p = navigator.clipboard.writeText(text);
+              if (p && typeof p.then === "function") {
+                p.then(function () {
+                  onDone(true);
+                }).catch(function () {
+                  fallbackExecCommand();
+                });
+              } else {
+                onDone(true);
+              }
+            } catch (e1) {
+              fallbackExecCommand();
+            }
+          } else {
+            fallbackExecCommand();
+          }
         }
 
         var copyBtn = document.getElementById("copy-email");
@@ -735,49 +829,51 @@
         if (copyBtn && copyStatus) {
           copyBtn.addEventListener("click", function () {
             function done(ok) {
-              copyStatus.textContent = ok ? "Email copied to clipboard." : "Copy not supported — select the address manually.";
-              setTimeout(function () {
+              copyStatus.textContent = ok
+                ? "Email copied to clipboard."
+                : "Select the address and copy manually (Cmd/Ctrl+C).";
+              window.setTimeout(function () {
                 copyStatus.textContent = "";
               }, 3200);
             }
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-              navigator.clipboard.writeText(emailAddr).then(function () {
-                done(true);
-              }).catch(function () {
-                done(false);
-              });
-            } else {
-              done(false);
-            }
+            copyTextToClipboard(emailAddr, done);
           });
         }
 
-        document.querySelectorAll(".reveal").forEach(function (el) {
-          el.classList.add("reveal--pending");
-        });
+        var reveals = document.querySelectorAll(".reveal");
+        var r;
+        for (r = 0; r < reveals.length; r++) {
+          reveals[r].classList.add("reveal--pending");
+        }
 
-        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var reduceMotion = false;
+        try {
+          if (window.matchMedia) {
+            reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          }
+        } catch (mqErr) {}
 
-        if (!reduceMotion) {
-          var observer = new IntersectionObserver(
+        if (!reduceMotion && typeof window.IntersectionObserver === "function") {
+          var observer = new window.IntersectionObserver(
             function (entries) {
-              entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("reveal--visible");
-                  entry.target.classList.remove("reveal--pending");
+              var i;
+              for (i = 0; i < entries.length; i++) {
+                if (entries[i].isIntersecting) {
+                  entries[i].target.classList.add("reveal--visible");
+                  entries[i].target.classList.remove("reveal--pending");
                 }
-              });
+              }
             },
             { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
           );
-          document.querySelectorAll(".reveal").forEach(function (el) {
-            observer.observe(el);
-          });
+          for (r = 0; r < reveals.length; r++) {
+            observer.observe(reveals[r]);
+          }
         } else {
-          document.querySelectorAll(".reveal").forEach(function (el) {
-            el.classList.add("reveal--visible");
-            el.classList.remove("reveal--pending");
-          });
+          for (r = 0; r < reveals.length; r++) {
+            reveals[r].classList.add("reveal--visible");
+            reveals[r].classList.remove("reveal--pending");
+          }
         }
       })();
     </script>
