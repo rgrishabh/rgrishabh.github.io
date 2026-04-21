@@ -91,10 +91,10 @@
             </h1>
             <p class="hero-sub hero-in hero-in--3">Lead DevOps Engineer · AWS Solutions Architect Associate</p>
             <p class="lede hero-in hero-in--4">
-              Dedicated engineer with <strong><span id="exp-hero">—</span> years</strong> across DevOps, cloud, and
+              Dedicated engineer with <strong><span id="exp-hero">—</span></strong> across DevOps, cloud, and
               automation — designing scalable AWS estates, hardened CI/CD, Kubernetes
               operations, and observability for high-traffic platforms.
-              <span class="lede-note">Experience counted from <time datetime="2021-09-01">September&nbsp;2021</time>.</span>
+              <span class="lede-note">Experience counted from <time datetime="2021-09-01">September&nbsp;2021</time> (years + full months).</span>
             </p>
             <ul class="badge-row hero-in hero-in--5" aria-label="Highlights">
               <li>AWS SAA</li>
@@ -254,7 +254,17 @@
           <div class="bento">
             <article class="bento-card bento-card--wide tilt-hover">
               <span class="bento-kicker">Experience</span>
-              <p class="bento-stat"><span id="exp-bento">—</span><span class="bento-stat-suffix"> yrs</span></p>
+              <div class="bento-stat-ym" role="group" aria-label="Time in role since September 2021">
+                <div class="bento-stat-ym__part">
+                  <span id="exp-bento-y" class="bento-stat-ym__num">—</span>
+                  <span class="bento-stat-ym__sub">yrs</span>
+                </div>
+                <div class="bento-stat-ym__sep" aria-hidden="true"></div>
+                <div class="bento-stat-ym__part">
+                  <span id="exp-bento-m" class="bento-stat-ym__num">—</span>
+                  <span class="bento-stat-ym__sub">mo</span>
+                </div>
+              </div>
               <p class="bento-desc">Shipping and operating cloud-native platforms across product and enterprise contexts.</p>
               <p class="bento-foot"><time datetime="2021-09-01">Since Sept 2021</time> · updates daily</p>
             </article>
@@ -674,7 +684,8 @@
 
         document.getElementById("year").textContent = new Date().getFullYear();
 
-        function experienceYearsSinceSept2021() {
+        /** Calendar difference from Sept 1, 2021 → today (years + months, not a decimal). */
+        function experienceSinceSept2021() {
           var start = new Date(2021, 8, 1);
           var now = new Date();
           var y = now.getFullYear() - start.getFullYear();
@@ -685,21 +696,37 @@
             y--;
             m += 12;
           }
-          var totalMonths = y * 12 + m;
-          if (totalMonths < 0) totalMonths = 0;
-          return Math.round((totalMonths / 12) * 10) / 10;
+          if (y < 0) {
+            y = 0;
+            m = 0;
+          }
+          return { years: y, months: m };
         }
 
-        var expYears = experienceYearsSinceSept2021();
-        var expStr = expYears.toFixed(1);
+        function formatExperienceWords(ym) {
+          var parts = [];
+          if (ym.years > 0) {
+            parts.push(ym.years === 1 ? "1 year" : ym.years + " years");
+          }
+          if (ym.months > 0) {
+            parts.push(ym.months === 1 ? "1 month" : ym.months + " months");
+          }
+          if (parts.length === 0) return "0 months";
+          return parts.join(" ");
+        }
+
+        var exp = experienceSinceSept2021();
+        var expWords = formatExperienceWords(exp);
         var heroEl = document.getElementById("exp-hero");
-        var bentoEl = document.getElementById("exp-bento");
+        var bentoY = document.getElementById("exp-bento-y");
+        var bentoM = document.getElementById("exp-bento-m");
         var contactBlurb = document.getElementById("exp-contact-blurb");
-        if (heroEl) heroEl.textContent = expStr;
-        if (bentoEl) bentoEl.textContent = expStr;
+        if (heroEl) heroEl.textContent = expWords;
+        if (bentoY) bentoY.textContent = String(exp.years);
+        if (bentoM) bentoM.textContent = String(exp.months);
         if (contactBlurb) {
           contactBlurb.textContent =
-            expStr + " yrs in production roles (since Sept 2021)";
+            expWords + " in production roles (since Sept 2021)";
         }
 
         var copyBtn = document.getElementById("copy-email");

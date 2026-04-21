@@ -1136,6 +1136,44 @@ html[data-theme="light"] .chips li {
   margin-left: 0.08em;
 }
 
+.bento-stat-ym {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  margin: 0 0 0.35rem;
+}
+
+.bento-stat-ym__part {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.bento-stat-ym__num {
+  font-size: clamp(2rem, 1.65rem + 1.2vw, 2.65rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.bento-stat-ym__sub {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bento-stat-ym__sep {
+  width: 1px;
+  align-self: stretch;
+  min-height: 2.25rem;
+  background: linear-gradient(180deg, transparent, var(--border), transparent);
+}
+
 .bento-label {
   margin: 0 0 0.35rem;
   font-size: 1.15rem;
