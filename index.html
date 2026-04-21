@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Rishabh — portfolio and projects." />
+    <meta name="theme-color" content="#0c0f14" />
+    <title>Rishabh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314b8a6'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='16' fill='%230c0f14' font-family='system-ui,sans-serif' font-weight='700'%3ER%3C/text%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="logo" href="/">Rishabh</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Hello — I’m</p>
+            <h1 class="hero-title">
+              Rishabh<span class="dot">.</span>
+            </h1>
+            <p class="lede">
+              I build thoughtful software and care about clarity, performance, and
+              the people who use what I ship.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Get in touch</a>
+              <a class="btn btn-ghost" href="#work">View work</a>
+            </div>
+          </div>
+          <div class="hero-panel" aria-hidden="true">
+            <div class="panel-card">
+              <span class="panel-tag">Now</span>
+              <p class="panel-text">
+                Open to <strong>collaborations</strong>, thoughtful product work, and
+                problems where craft still matters.
+              </p>
+            </div>
+            <div class="panel-orbit">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="section">
+        <div class="wrap">
+          <header class="section-head">
+            <h2>Selected work</h2>
+            <p>A few things I’m proud of — swap these for your real projects.</p>
+          </header>
+          <ul class="cards">
+            <li class="card">
+              <h3>Systems &amp; APIs</h3>
+              <p>
+                Reliable backends, clean contracts, and observability baked in from
+                day one.
+              </p>
+              <span class="card-meta">Go · TypeScript · Postgres</span>
+            </li>
+            <li class="card">
+              <h3>Product surfaces</h3>
+              <p>
+                Interfaces that feel fast and intentional — motion, spacing, and
+                copy working together.
+              </p>
+              <span class="card-meta">React · Next.js · CSS</span>
+            </li>
+            <li class="card">
+              <h3>Developer experience</h3>
+              <p>
+                Tooling and docs that help teams move with confidence instead of
+                fighting the machine.
+              </p>
+              <span class="card-meta">CI · CLI · Docs</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="about" class="section section-alt">
+        <div class="wrap split">
+          <div>
+            <header class="section-head">
+              <h2>About</h2>
+              <p>
+                Replace this paragraph with your story: what you optimize for, what
+                you’ve learned, and what you want next.
+              </p>
+            </header>
+          </div>
+          <ul class="facts">
+            <li><strong>Focus</strong> — end-to-end product engineering</li>
+            <li><strong>Principles</strong> — small diffs, clear tradeoffs</li>
+            <li><strong>Outside work</strong> — reading, side projects, good coffee</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="wrap contact">
+          <h2>Let’s talk</h2>
+          <p>
+            Email me at
+            <a class="inline-link" href="mailto:hello@example.com">hello@example.com</a>
+            — update this to your real address before you publish.
+          </p>
+          <ul class="social" aria-label="Social links">
+            <li>
+              <a href="https://github.com/rishabh" rel="noopener noreferrer">GitHub</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/" rel="noopener noreferrer">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>© <span id="year"></span> Rishabh.</p>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
