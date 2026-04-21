@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,8 +7,20 @@
       name="description"
       content="Rishabh Gupta — Lead DevOps Engineer, AWS Solutions Architect Associate. CI/CD, Kubernetes, observability, cloud infrastructure."
     />
-    <meta name="theme-color" content="#0a0e17" />
+    <meta id="theme-color-meta" name="theme-color" content="#060910" />
     <title>Rishabh Gupta · DevOps &amp; Cloud</title>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("portfolio-theme");
+          if (stored === "light" || stored === "dark") {
+            document.documentElement.setAttribute("data-theme", stored);
+          } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,14 +45,38 @@
           <span class="logo-glow"></span>
           <span class="logo-text">Rishabh Gupta</span>
         </a>
-        <nav class="nav" aria-label="Primary">
-          <a href="#summary">Summary</a>
-          <a href="#tools">Tools</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#credentials">Credentials</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <div class="header-end">
+          <nav class="nav" aria-label="Primary">
+            <a href="#summary">Summary</a>
+            <a href="#tools">Tools</a>
+            <a href="#spotlight">Highlights</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#playbook">Playbook</a>
+            <a href="#background">Background</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <button
+            type="button"
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Toggle light and dark theme"
+            title="Light / dark theme"
+          >
+            <span class="theme-toggle__track" aria-hidden="true"></span>
+            <span class="theme-icon theme-icon--moon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            </span>
+            <span class="theme-icon theme-icon--sun" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+              </svg>
+            </span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -208,6 +244,42 @@
         </div>
       </section>
 
+      <section class="section reveal" id="spotlight" aria-labelledby="spotlight-heading">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="spotlight-heading">Highlights</h2>
+            <p>Snapshot numbers and focus areas — the kind of signal recruiters and hiring managers scan first.</p>
+          </header>
+          <div class="bento">
+            <article class="bento-card bento-card--wide tilt-hover">
+              <span class="bento-kicker">Experience</span>
+              <p class="bento-stat">4.6<span class="bento-stat-suffix">+ yrs</span></p>
+              <p class="bento-desc">Shipping and operating cloud-native platforms across product and enterprise contexts.</p>
+            </article>
+            <article class="bento-card tilt-hover">
+              <span class="bento-kicker">Certification</span>
+              <p class="bento-label">AWS Solutions Architect</p>
+              <p class="bento-desc bento-desc--tight">Associate · architecture patterns for resilient AWS designs.</p>
+            </article>
+            <article class="bento-card tilt-hover">
+              <span class="bento-kicker">Scale</span>
+              <p class="bento-stat bento-stat--sm">100M+</p>
+              <p class="bento-desc">Users behind systems supported with on-call ownership and SRE-style practices.</p>
+            </article>
+            <article class="bento-card tilt-hover">
+              <span class="bento-kicker">Availability</span>
+              <p class="bento-label">24 / 7 on-call</p>
+              <p class="bento-desc">Incident command, coordination, and blameless follow-ups with RCA.</p>
+            </article>
+            <article class="bento-card bento-card--accent tilt-hover">
+              <span class="bento-kicker">Enterprise</span>
+              <p class="bento-label">Platform @ scale</p>
+              <p class="bento-desc">GitHub Enterprise, Jira &amp; Confluence Data Center for tens of thousands of engineers.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section reveal" id="skills">
         <div class="wrap">
           <header class="section-head">
@@ -370,36 +442,118 @@
         </div>
       </section>
 
-      <section class="section reveal" id="credentials">
-        <div class="wrap cred-grid">
-          <article class="cred-card tilt-hover">
-            <header class="section-head section-head--tight">
-              <h2>Certifications</h2>
-            </header>
-            <ul class="cred-list">
-              <li>
-                <strong>AWS Certified Solutions Architect – Associate</strong>
-                <span class="cred-note">Verification available on request</span>
-              </li>
-            </ul>
-          </article>
-          <article class="cred-card tilt-hover">
-            <header class="section-head section-head--tight">
-              <h2>Education</h2>
-            </header>
-            <ul class="cred-list">
-              <li>
-                <strong>B.Tech, Computer Science &amp; Engineering</strong> — Lovely Professional University (2022) ·
-                <span class="cred-metric">83.4%</span>
-              </li>
-              <li>
-                <strong>Intermediate</strong> — SVM Inter College (2018) · <span class="cred-metric">85.2%</span>
-              </li>
-              <li>
-                <strong>High school</strong> — SVM Inter College (2016) · <span class="cred-metric">84.3%</span>
-              </li>
-            </ul>
-          </article>
+      <section class="section reveal" id="playbook" aria-labelledby="playbook-heading">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="playbook-heading">Playbook</h2>
+            <p>
+              How I collaborate and keep growing — inspired by the way strong platform and DevOps profiles tell a story
+              beyond tool names alone.
+            </p>
+          </header>
+          <div class="playbook-grid">
+            <div class="playbook-col">
+              <h3 class="playbook-sub">How I work</h3>
+              <ul class="playbook-list">
+                <li>
+                  <span class="playbook-dot" aria-hidden="true"></span>
+                  <strong>Automate the boring parts</strong> — pipelines and guardrails so humans review intent, not repetition.
+                </li>
+                <li>
+                  <span class="playbook-dot" aria-hidden="true"></span>
+                  <strong>Observable by default</strong> — metrics, logs, and traces wired so incidents shrink instead of snowballing.
+                </li>
+                <li>
+                  <span class="playbook-dot" aria-hidden="true"></span>
+                  <strong>Blameless learning</strong> — RCA and follow-ups that make the system harder to break next time.
+                </li>
+                <li>
+                  <span class="playbook-dot" aria-hidden="true"></span>
+                  <strong>Clear handoffs</strong> — docs, runbooks, and crisp communication between app teams and platform.
+                </li>
+              </ul>
+            </div>
+            <div class="playbook-col">
+              <h3 class="playbook-sub">Always learning</h3>
+              <p class="playbook-lede">
+                Staying current on Kubernetes release patterns, AWS security bulletins, and CI/CD ergonomics — then
+                distilling what actually helps a team ship safely.
+              </p>
+              <ul class="playbook-tags">
+                <li>Cost-aware architecture</li>
+                <li>GitOps tradeoffs</li>
+                <li>SLOs &amp; error budgets</li>
+                <li>Supply chain security</li>
+              </ul>
+            </div>
+          </div>
+          <a class="github-spotlight tilt-hover" href="https://github.com/rgrishabh" rel="noopener noreferrer">
+            <div class="github-spotlight__text">
+              <span class="github-spotlight__label">On GitHub</span>
+              <strong class="github-spotlight__title">github.com/rgrishabh</strong>
+              <span class="github-spotlight__hint">Repos, experiments, and infra-as-code snippets</span>
+            </div>
+            <div class="github-spotlight__badges" aria-hidden="true">
+              <img
+                class="github-badge"
+                src="https://img.shields.io/github/followers/rgrishabh?label=Followers&logo=github&style=flat-square&color=%2310b981&logoColor=white"
+                width="92"
+                height="20"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                class="github-badge"
+                src="https://img.shields.io/static/v1?label=&message=View%20profile&color=232F3E&logo=github&style=flat-square"
+                width="118"
+                height="20"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <span class="github-spotlight__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section section-alt reveal" id="background" aria-labelledby="background-heading">
+        <div class="wrap">
+          <header class="section-head">
+            <h2 id="background-heading">Education &amp; certifications</h2>
+            <p>Formal credentials and academic path — everything you would expect in a background check, in one place.</p>
+          </header>
+          <div class="cred-grid">
+            <article class="cred-card tilt-hover">
+              <header class="section-head section-head--tight">
+                <h3 class="cred-card-title">Certifications</h3>
+              </header>
+              <ul class="cred-list">
+                <li>
+                  <strong>AWS Certified Solutions Architect – Associate</strong>
+                  <span class="cred-note">Verification available on request</span>
+                </li>
+              </ul>
+            </article>
+            <article class="cred-card tilt-hover">
+              <header class="section-head section-head--tight">
+                <h3 class="cred-card-title">Education</h3>
+              </header>
+              <ul class="cred-list">
+                <li>
+                  <strong>B.Tech, Computer Science &amp; Engineering</strong> — Lovely Professional University (2022) ·
+                  <span class="cred-metric">83.4%</span>
+                </li>
+                <li>
+                  <strong>Intermediate</strong> — SVM Inter College (2018) · <span class="cred-metric">85.2%</span>
+                </li>
+                <li>
+                  <strong>High school</strong> — SVM Inter College (2016) · <span class="cred-metric">84.3%</span>
+                </li>
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -435,38 +589,70 @@
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <p>© <span id="year"></span> Rishabh Gupta</p>
+        <p class="footer-note">Theme follows your choice and saves on this device.</p>
       </div>
     </footer>
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+      (function () {
+        var root = document.documentElement;
+        var meta = document.getElementById("theme-color-meta");
+        var btn = document.getElementById("theme-toggle");
 
-      document.querySelectorAll(".reveal").forEach(function (el) {
-        el.classList.add("reveal--pending");
-      });
+        function syncMeta() {
+          if (!meta) return;
+          var light = root.getAttribute("data-theme") === "light";
+          meta.setAttribute("content", light ? "#f0f4fb" : "#060910");
+        }
 
-      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        function setTheme(next) {
+          root.setAttribute("data-theme", next);
+          try {
+            localStorage.setItem("portfolio-theme", next);
+          } catch (e) {}
+          syncMeta();
+          if (btn) btn.setAttribute("aria-pressed", next === "light" ? "true" : "false");
+        }
 
-      if (!reduceMotion) {
-        var observer = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("reveal--visible");
-                entry.target.classList.remove("reveal--pending");
-              }
-            });
-          },
-          { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
-        );
+        if (btn) {
+          btn.addEventListener("click", function () {
+            var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+            setTheme(next);
+          });
+        }
+
+        syncMeta();
+        if (btn) btn.setAttribute("aria-pressed", root.getAttribute("data-theme") === "light" ? "true" : "false");
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+
         document.querySelectorAll(".reveal").forEach(function (el) {
-          observer.observe(el);
+          el.classList.add("reveal--pending");
         });
-      } else {
-        document.querySelectorAll(".reveal").forEach(function (el) {
-          el.classList.add("reveal--visible");
-          el.classList.remove("reveal--pending");
-        });
-      }
+
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!reduceMotion) {
+          var observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("reveal--visible");
+                  entry.target.classList.remove("reveal--pending");
+                }
+              });
+            },
+            { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
+          );
+          document.querySelectorAll(".reveal").forEach(function (el) {
+            observer.observe(el);
+          });
+        } else {
+          document.querySelectorAll(".reveal").forEach(function (el) {
+            el.classList.add("reveal--visible");
+            el.classList.remove("reveal--pending");
+          });
+        }
+      })();
     </script>
   </body>
 </html>
