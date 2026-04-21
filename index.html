@@ -3,142 +3,319 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Rishabh — portfolio and projects." />
-    <meta name="theme-color" content="#0c0f14" />
-    <title>Rishabh</title>
+    <meta
+      name="description"
+      content="Rishabh Gupta — Lead DevOps Engineer, AWS Solutions Architect Associate. CI/CD, Kubernetes, observability, cloud infrastructure."
+    />
+    <meta name="theme-color" content="#0a0e17" />
+    <title>Rishabh Gupta · DevOps &amp; Cloud</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314b8a6'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='16' fill='%230c0f14' font-family='system-ui,sans-serif' font-weight='700'%3ER%3C/text%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FF9900'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='13' fill='%230a0e17' font-family='system-ui,sans-serif' font-weight='800'%3ERG%3C/text%3E%3C/svg%3E"
     />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap header-inner">
-        <a class="logo" href="/">Rishabh</a>
+        <a class="logo" href="#"><span class="logo-mono">RG</span> Rishabh Gupta</a>
         <nav class="nav" aria-label="Primary">
-          <a href="#work">Work</a>
-          <a href="#about">About</a>
+          <a href="#summary">Summary</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#credentials">Credentials</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
 
     <main id="main">
-      <section class="hero">
+      <section class="hero" id="top">
         <div class="wrap hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Hello — I’m</p>
-            <h1 class="hero-title">
-              Rishabh<span class="dot">.</span>
-            </h1>
+            <p class="eyebrow">DevOps · Cloud · Platform reliability</p>
+            <h1 class="hero-title">Rishabh Gupta</h1>
+            <p class="hero-sub">Lead DevOps Engineer · AWS Solutions Architect Associate</p>
             <p class="lede">
-              I build thoughtful software and care about clarity, performance, and
-              the people who use what I ship.
+              Dedicated engineer with <strong>4.6+ years</strong> across DevOps, cloud, and
+              automation — designing scalable AWS estates, hardened CI/CD, Kubernetes
+              operations, and observability for high-traffic platforms.
             </p>
+            <ul class="badge-row" aria-label="Highlights">
+              <li>AWS SAA</li>
+              <li>Kubernetes &amp; GitOps</li>
+              <li>24×7 production on-call</li>
+            </ul>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#contact">Get in touch</a>
-              <a class="btn btn-ghost" href="#work">View work</a>
+              <a class="btn btn-primary" href="Rishabh_DevOps_4.pdf" download>Download CV (PDF)</a>
+              <a class="btn btn-ghost" href="#contact">Contact</a>
+              <a class="btn btn-ghost" href="https://www.linkedin.com/in/rgrishabh" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
-          <div class="hero-panel" aria-hidden="true">
-            <div class="panel-card">
-              <span class="panel-tag">Now</span>
-              <p class="panel-text">
-                Open to <strong>collaborations</strong>, thoughtful product work, and
-                problems where craft still matters.
-              </p>
+          <aside class="hero-aside" aria-label="At a glance">
+            <div class="stat-card">
+              <span class="stat-label">Focus</span>
+              <p class="stat-value">CI/CD, K8s, observability, cloud security</p>
             </div>
-            <div class="panel-orbit">
-              <span></span><span></span><span></span>
+            <div class="stat-card">
+              <span class="stat-label">Scale</span>
+              <p class="stat-value">Mission-critical infra · <strong>100M+</strong> users served</p>
             </div>
-          </div>
+            <div class="stat-card">
+              <span class="stat-label">Enterprise tooling</span>
+              <p class="stat-value">GitHub Enterprise, Jira &amp; Confluence Data Center</p>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <section id="work" class="section">
+      <section class="section section-alt" id="summary">
+        <div class="wrap narrow">
+          <header class="section-head">
+            <h2>Professional summary</h2>
+            <p>
+              AWS Certified Solutions Architect Associate with a track record of shipping
+              reliable pipelines, GitOps workflows, and production Kubernetes — paired
+              with strong incident response, RCA, and cross-team collaboration.
+            </p>
+          </header>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
         <div class="wrap">
           <header class="section-head">
-            <h2>Selected work</h2>
-            <p>A few things I’m proud of — swap these for your real projects.</p>
+            <h2>Skills</h2>
+            <p>Stack drawn from live production and enterprise environments.</p>
           </header>
-          <ul class="cards">
-            <li class="card">
-              <h3>Systems &amp; APIs</h3>
-              <p>
-                Reliable backends, clean contracts, and observability baked in from
-                day one.
-              </p>
-              <span class="card-meta">Go · TypeScript · Postgres</span>
-            </li>
-            <li class="card">
-              <h3>Product surfaces</h3>
-              <p>
-                Interfaces that feel fast and intentional — motion, spacing, and
-                copy working together.
-              </p>
-              <span class="card-meta">React · Next.js · CSS</span>
-            </li>
-            <li class="card">
-              <h3>Developer experience</h3>
-              <p>
-                Tooling and docs that help teams move with confidence instead of
-                fighting the machine.
-              </p>
-              <span class="card-meta">CI · CLI · Docs</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="about" class="section section-alt">
-        <div class="wrap split">
-          <div>
-            <header class="section-head">
-              <h2>About</h2>
-              <p>
-                Replace this paragraph with your story: what you optimize for, what
-                you’ve learned, and what you want next.
-              </p>
-            </header>
+          <div class="skill-grid">
+            <article class="skill-block">
+              <h3>Cloud &amp; infrastructure</h3>
+              <ul class="chips">
+                <li>AWS</li>
+                <li>EC2</li>
+                <li>RDS</li>
+                <li>S3</li>
+                <li>VPC</li>
+                <li>Route 53</li>
+                <li>ACM</li>
+                <li>ELB</li>
+                <li>IAM</li>
+                <li>ECR</li>
+                <li>API Gateway</li>
+                <li>CloudWatch</li>
+                <li>Secrets Manager</li>
+                <li>Inspector</li>
+                <li>Security Hub</li>
+                <li>GuardDuty</li>
+              </ul>
+            </article>
+            <article class="skill-block">
+              <h3>DevOps &amp; CI/CD</h3>
+              <ul class="chips">
+                <li>Jenkins</li>
+                <li>GitHub Actions</li>
+                <li>ArgoCD</li>
+                <li>JFrog Artifactory</li>
+                <li>Git</li>
+                <li>GitHub</li>
+                <li>Gradle</li>
+                <li>Maven</li>
+              </ul>
+            </article>
+            <article class="skill-block">
+              <h3>Containers &amp; IaC</h3>
+              <ul class="chips">
+                <li>Docker</li>
+                <li>Kubernetes</li>
+                <li>Terraform</li>
+                <li>Linux</li>
+              </ul>
+            </article>
+            <article class="skill-block">
+              <h3>Observability &amp; incidents</h3>
+              <ul class="chips">
+                <li>Prometheus</li>
+                <li>Grafana</li>
+                <li>Grafana Incident</li>
+                <li>ELK</li>
+                <li>New Relic</li>
+                <li>AppDynamics</li>
+                <li>Zabbix</li>
+                <li>PRTG</li>
+                <li>AlertSite</li>
+                <li>Opsgenie</li>
+              </ul>
+            </article>
           </div>
-          <ul class="facts">
-            <li><strong>Focus</strong> — end-to-end product engineering</li>
-            <li><strong>Principles</strong> — small diffs, clear tradeoffs</li>
-            <li><strong>Outside work</strong> — reading, side projects, good coffee</li>
-          </ul>
         </div>
       </section>
 
-      <section id="contact" class="section">
+      <section class="section section-alt" id="experience">
+        <div class="wrap">
+          <header class="section-head">
+            <h2>Experience</h2>
+            <p>Selected roles aligned with your résumé.</p>
+          </header>
+          <ol class="timeline">
+            <li class="timeline-item">
+              <div class="timeline-meta">
+                <span class="timeline-date">Aug 2024 — Present</span>
+                <span class="timeline-loc">Noida, Uttar Pradesh</span>
+              </div>
+              <div class="timeline-body">
+                <h3>Persistent Systems</h3>
+                <p class="timeline-role">Lead Software Engineer</p>
+                <ul class="bullet-list">
+                  <li>
+                    CI/CD with <strong>Jenkins</strong>; <strong>ArgoCD</strong> for GitOps deployments — fewer manual steps,
+                    more consistent releases.
+                  </li>
+                  <li>
+                    Production <strong>Kubernetes</strong>: workloads, namespaces, capacity, troubleshooting; HA and
+                    optimization for large microservice estates.
+                  </li>
+                  <li>
+                    Observability for metrics, logs, and health — proactive detection and faster resolution in production.
+                  </li>
+                  <li>
+                    <strong>24/7 on-call</strong> for mission-critical platforms (<strong>100M+</strong> users): incident
+                    response, coordination, and RCA.
+                  </li>
+                  <li>
+                    Administered <strong>GitHub Enterprise</strong>, <strong>Jira</strong>, and <strong>Confluence Data Center</strong> for
+                    ~<strong>30,000</strong> users — upgrades, access, stability.
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-meta">
+                <span class="timeline-date">Apr 2024 — Jul 2025</span>
+                <span class="timeline-loc">Greater Noida, Uttar Pradesh</span>
+              </div>
+              <div class="timeline-body">
+                <h3>Payomatix Technologies</h3>
+                <p class="timeline-role">System Support Engineer</p>
+                <ul class="bullet-list">
+                  <li>Partnered with engineering and SRE on production issues, releases, uptime, and stability.</li>
+                  <li>
+                    Built observability with <strong>Prometheus</strong>, <strong>Grafana</strong>, and <strong>ELK</strong> — alerting and quicker root
+                    cause analysis.
+                  </li>
+                  <li>
+                    Strengthened cloud security: <strong>IAM RBAC</strong>, key management, and vulnerability scanning for
+                    compliance-aligned infra.
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-meta">
+                <span class="timeline-date">Jan 2024 — Apr 2024</span>
+                <span class="timeline-loc">Noida, Uttar Pradesh</span>
+              </div>
+              <div class="timeline-body">
+                <h3>Avani Ecocare</h3>
+                <p class="timeline-role">Freelance · DevOps Engineer</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-meta">
+                <span class="timeline-date">Jul 2022 — Dec 2023</span>
+                <span class="timeline-loc">Pune, Maharashtra</span>
+              </div>
+              <div class="timeline-body">
+                <h3>Codewalla Software Development</h3>
+                <p class="timeline-role">Jr. DevOps Engineer</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-meta">
+                <span class="timeline-date">Sept 2021 — May 2022</span>
+                <span class="timeline-loc">Chennai, Tamil Nadu</span>
+              </div>
+              <div class="timeline-body">
+                <h3>Purchasing Power LLC</h3>
+                <p class="timeline-role">Site Ops Engineer · Intern</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="credentials">
+        <div class="wrap cred-grid">
+          <article class="cred-card">
+            <header class="section-head section-head--tight">
+              <h2>Certifications</h2>
+            </header>
+            <ul class="cred-list">
+              <li>
+                <strong>AWS Certified Solutions Architect – Associate</strong>
+                <span class="cred-note">Verification available on request</span>
+              </li>
+            </ul>
+          </article>
+          <article class="cred-card">
+            <header class="section-head section-head--tight">
+              <h2>Education</h2>
+            </header>
+            <ul class="cred-list">
+              <li>
+                <strong>B.Tech, Computer Science &amp; Engineering</strong> — Lovely Professional University (2022) ·
+                <span class="cred-metric">83.4%</span>
+              </li>
+              <li>
+                <strong>Intermediate</strong> — SVM Inter College (2018) · <span class="cred-metric">85.2%</span>
+              </li>
+              <li>
+                <strong>High school</strong> — SVM Inter College (2016) · <span class="cred-metric">84.3%</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="contact">
         <div class="wrap contact">
-          <h2>Let’s talk</h2>
-          <p>
-            Email me at
-            <a class="inline-link" href="mailto:rgrishabh@yahoo.com">rgrishabh@yahoo.com</a>.
-          </p>
-          <ul class="social" aria-label="Social links">
+          <h2>Contact</h2>
+          <p class="contact-lead">Open to roles and collaborations in DevOps, platform, and cloud architecture.</p>
+          <ul class="contact-list">
             <li>
-              <a href="https://github.com/rgrishabh" rel="noopener noreferrer">GitHub</a>
+              <span class="contact-key">Email</span>
+              <a class="inline-link" href="mailto:rgrishabh@yahoo.com">rgrishabh@yahoo.com</a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/" rel="noopener noreferrer">LinkedIn</a>
+              <span class="contact-key">Phone</span>
+              <a class="inline-link" href="tel:+917007554304">+91 70075 54304</a>
+            </li>
+            <li>
+              <span class="contact-key">LinkedIn</span>
+              <a class="inline-link" href="https://www.linkedin.com/in/rgrishabh" rel="noopener noreferrer">linkedin.com/in/rgrishabh</a>
+            </li>
+            <li>
+              <span class="contact-key">GitHub</span>
+              <a class="inline-link" href="https://github.com/rgrishabh" rel="noopener noreferrer">github.com/rgrishabh</a>
             </li>
           </ul>
+          <p class="contact-cta">
+            <a class="btn btn-primary" href="Rishabh_DevOps_4.pdf" download>Download CV (PDF)</a>
+          </p>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <p>© <span id="year"></span> Rishabh.</p>
+        <p>© <span id="year"></span> Rishabh Gupta. Built with static HTML for GitHub Pages.</p>
       </div>
     </footer>
     <script>
