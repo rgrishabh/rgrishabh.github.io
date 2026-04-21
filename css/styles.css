@@ -510,7 +510,7 @@ html[data-theme="light"] .aws-badge-link:hover {
 .aws-badge-img {
   display: block;
   width: auto;
-  max-width: min(100%, 240px);
+  max-width: min(100%, 180px);
   height: auto;
 }
 
@@ -1103,8 +1103,8 @@ html[data-theme="light"] .chips li {
 
 .cred-aws-badge-img {
   display: block;
-  width: 200px;
-  max-width: 100%;
+  width: auto;
+  max-width: min(100%, 180px);
   height: auto;
 }
 
