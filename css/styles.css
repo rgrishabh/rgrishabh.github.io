@@ -34,6 +34,10 @@
   --contact-hover-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
   --contact-section-glow: radial-gradient(ellipse at center, rgba(255, 153, 0, 0.1), transparent 65%);
   --link-hover: #ffb84d;
+  --badge-frame-bg: rgba(12, 20, 36, 0.72);
+  --badge-frame-border: rgba(56, 189, 248, 0.14);
+  --badge-frame-shadow: 0 8px 26px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --badge-frame-hover-border: rgba(255, 153, 0, 0.38);
 }
 
 html[data-theme="light"] {
@@ -64,6 +68,10 @@ html[data-theme="light"] {
   --contact-hover-shadow: 0 14px 36px rgba(15, 23, 42, 0.12);
   --contact-section-glow: radial-gradient(ellipse at center, rgba(234, 134, 0, 0.14), transparent 65%);
   --link-hover: #c2410c;
+  --badge-frame-bg: rgba(255, 255, 255, 0.94);
+  --badge-frame-border: rgba(2, 132, 199, 0.12);
+  --badge-frame-shadow: 0 6px 22px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255, 255, 255, 1);
+  --badge-frame-hover-border: rgba(234, 134, 0, 0.42);
 }
 
 *,
@@ -494,6 +502,8 @@ html[data-theme="light"] .theme-icon--moon {
 }
 
 .hero-cert-row {
+  display: flex;
+  align-items: center;
   margin: 0 0 1rem;
   line-height: 0;
 }
@@ -502,35 +512,24 @@ html[data-theme="light"] .theme-icon--moon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.55rem 0.65rem;
-  border-radius: var(--radius-md);
-  background: linear-gradient(155deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.42));
-  border: 1px solid rgba(56, 189, 248, 0.24);
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  padding: 0.5rem 0.55rem;
+  border-radius: 14px;
+  background: var(--badge-frame-bg);
+  border: 1px solid var(--badge-frame-border);
+  box-shadow: var(--badge-frame-shadow);
   transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-html[data-theme="light"] .hero-cert-frame {
-  background: linear-gradient(155deg, rgba(2, 132, 199, 0.09), rgba(255, 255, 255, 0.96));
-  border-color: rgba(2, 132, 199, 0.22);
-  box-shadow:
-    0 10px 26px rgba(15, 23, 42, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95);
-}
-
 .hero-cert-frame:hover {
-  border-color: rgba(255, 153, 0, 0.35);
+  border-color: var(--badge-frame-hover-border);
   box-shadow:
-    0 14px 36px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 10px 30px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 html[data-theme="light"] .hero-cert-frame:hover {
-  border-color: rgba(234, 134, 0, 0.4);
   box-shadow:
-    0 12px 32px rgba(15, 23, 42, 0.1),
+    0 8px 26px rgba(15, 23, 42, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
@@ -547,11 +546,11 @@ html[data-theme="light"] .hero-cert-frame:hover {
 
 .aws-badge-img {
   display: block;
-  width: clamp(76px, 20vw, 104px);
+  width: clamp(88px, 22vw, 118px);
   height: auto;
   aspect-ratio: 1;
   object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.32));
 }
 
 html[data-theme="light"] .aws-badge-img {
@@ -1135,7 +1134,7 @@ html[data-theme="light"] .chips li {
 .cred-cert-row {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   gap: 1.1rem;
 }
 
@@ -1144,28 +1143,25 @@ html[data-theme="light"] .chips li {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 0.45rem 0.55rem;
+  padding: 0.42rem 0.5rem;
   border-radius: 12px;
-  background: linear-gradient(155deg, rgba(56, 189, 248, 0.09), rgba(15, 23, 42, 0.35));
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  background: var(--badge-frame-bg);
+  border: 1px solid var(--badge-frame-border);
+  box-shadow: var(--badge-frame-shadow);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-html[data-theme="light"] .cred-badge-frame {
-  background: linear-gradient(155deg, rgba(2, 132, 199, 0.07), #ffffff);
-  border-color: rgba(2, 132, 199, 0.18);
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
-}
-
 .cred-badge-frame:hover {
-  border-color: rgba(255, 153, 0, 0.32);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
+  border-color: var(--badge-frame-hover-border);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 html[data-theme="light"] .cred-badge-frame:hover {
-  border-color: rgba(234, 134, 0, 0.38);
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.1);
+  box-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
 .cred-aws-badge-link {
@@ -1181,11 +1177,11 @@ html[data-theme="light"] .cred-badge-frame:hover {
 
 .cred-aws-badge-img {
   display: block;
-  width: clamp(64px, 16vw, 84px);
+  width: clamp(72px, 17vw, 96px);
   height: auto;
   aspect-ratio: 1;
   object-fit: contain;
-  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.28));
 }
 
 html[data-theme="light"] .cred-aws-badge-img {
@@ -1195,6 +1191,7 @@ html[data-theme="light"] .cred-aws-badge-img {
 .cred-cert-text {
   flex: 1;
   min-width: min(100%, 220px);
+  padding-top: 0.2rem;
 }
 
 .cred-note {
@@ -1626,31 +1623,31 @@ html[data-theme="light"] .cred-aws-badge-img {
 
 .contact-meta {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.45rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
   margin: 0;
   font-size: 0.78rem;
   color: var(--muted);
-  line-height: 1.55;
-  max-width: 52ch;
+  line-height: 1.5;
+  max-width: 56ch;
 }
 
-.contact-meta__loc {
-  display: flex;
+.contact-meta__item {
+  display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.42rem;
   margin: 0;
+}
+
+.contact-meta__item--exp {
+  min-width: 0;
 }
 
 .contact-meta__pin {
   flex-shrink: 0;
   color: var(--accent-2);
   opacity: 0.92;
-}
-
-.contact-meta__exp {
-  margin: 0;
 }
 
 .copy-status {
