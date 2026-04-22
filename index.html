@@ -122,7 +122,7 @@
               <li>CI/CD &amp; platform</li>
             </ul>
             <div class="hero-actions hero-in hero-in--6">
-              <a class="btn btn-primary btn-shine" href="Rishabh_DevOps_4.pdf" download>Download CV (PDF)</a>
+              <a class="btn btn-primary btn-shine" href="assets/Rishabh_DevOps_4.pdf" download>Download CV (PDF)</a>
               <a class="btn btn-ghost" href="#contact">Contact</a>
               <a class="btn btn-ghost" href="https://www.linkedin.com/in/rgrishabh" rel="noopener noreferrer">LinkedIn</a>
             </div>
@@ -735,7 +735,7 @@
             </div>
             <div class="contact-actions">
               <button type="button" class="btn btn-ghost" id="copy-email">Copy email</button>
-              <a class="btn btn-primary btn-shine" href="Rishabh_DevOps_4.pdf" download>Download CV (PDF)</a>
+              <a class="btn btn-primary btn-shine" href="assets/Rishabh_DevOps_4.pdf" download>Download CV (PDF)</a>
             </div>
           </div>
         </div>
@@ -748,179 +748,9 @@
         <p class="footer-note">Light/dark preference is stored in this browser.</p>
       </div>
     </footer>
-    <script>
-      (function () {
-        var root = document.documentElement;
-        var meta = document.getElementById("theme-color-meta");
-        var btn = document.getElementById("theme-toggle");
-
-        function syncMeta() {
-          if (!meta) return;
-          var light = root.getAttribute("data-theme") === "light";
-          meta.setAttribute("content", light ? "#f0f4fb" : "#060910");
-        }
-
-        function setTheme(next) {
-          root.setAttribute("data-theme", next);
-          try {
-            localStorage.setItem("portfolio-theme", next);
-          } catch (e) {}
-          syncMeta();
-          if (btn) btn.setAttribute("aria-pressed", next === "light" ? "true" : "false");
-        }
-
-        if (btn) {
-          btn.addEventListener("click", function () {
-            var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-            setTheme(next);
-          });
-        }
-
-        syncMeta();
-        if (btn) btn.setAttribute("aria-pressed", root.getAttribute("data-theme") === "light" ? "true" : "false");
-
-        var yearEl = document.getElementById("year");
-        if (yearEl) {
-          yearEl.textContent = String(new Date().getFullYear());
-        }
-
-        /* Tenure display: calendar months from internal anchor date (not shown in UI). */
-        function experienceSinceSept2021() {
-          var start = new Date(2021, 8, 1);
-          var now = new Date();
-          var y = now.getFullYear() - start.getFullYear();
-          var m = now.getMonth() - start.getMonth();
-          var d = now.getDate() - start.getDate();
-          if (d < 0) m--;
-          if (m < 0) {
-            y--;
-            m += 12;
-          }
-          if (y < 0) {
-            y = 0;
-            m = 0;
-          }
-          return { years: y, months: m };
-        }
-
-        function formatExperienceWords(ym) {
-          var parts = [];
-          if (ym.years > 0) {
-            parts.push(ym.years === 1 ? "1 year" : ym.years + " years");
-          }
-          if (ym.months > 0) {
-            parts.push(ym.months === 1 ? "1 month" : ym.months + " months");
-          }
-          if (parts.length === 0) return "0 months";
-          return parts.join(" ");
-        }
-
-        var exp = experienceSinceSept2021();
-        var expWords = formatExperienceWords(exp);
-        var heroEl = document.getElementById("exp-hero");
-        var bentoY = document.getElementById("exp-bento-y");
-        var bentoM = document.getElementById("exp-bento-m");
-        var contactBlurb = document.getElementById("exp-contact-blurb");
-        if (heroEl) heroEl.textContent = expWords;
-        if (bentoY) bentoY.textContent = String(exp.years);
-        if (bentoM) bentoM.textContent = String(exp.months);
-        if (contactBlurb) {
-          contactBlurb.textContent = expWords + " in production-facing roles";
-        }
-
-        function copyTextToClipboard(text, onDone) {
-          function fallbackExecCommand() {
-            var ta = document.createElement("textarea");
-            var ok = false;
-            ta.value = text;
-            ta.setAttribute("readonly", "");
-            ta.style.cssText = "position:fixed;left:-9999px;top:0;opacity:0";
-            document.body.appendChild(ta);
-            ta.focus();
-            if (ta.setSelectionRange) {
-              ta.setSelectionRange(0, text.length);
-            } else {
-              ta.select();
-            }
-            try {
-              ok = document.execCommand("copy");
-            } catch (ex) {}
-            document.body.removeChild(ta);
-            onDone(ok);
-          }
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            try {
-              var p = navigator.clipboard.writeText(text);
-              if (p && typeof p.then === "function") {
-                p.then(function () {
-                  onDone(true);
-                }).catch(function () {
-                  fallbackExecCommand();
-                });
-              } else {
-                onDone(true);
-              }
-            } catch (e1) {
-              fallbackExecCommand();
-            }
-          } else {
-            fallbackExecCommand();
-          }
-        }
-
-        var copyBtn = document.getElementById("copy-email");
-        var copyStatus = document.getElementById("copy-status");
-        var emailAddr = "rgrishabh@yahoo.com";
-        if (copyBtn && copyStatus) {
-          copyBtn.addEventListener("click", function () {
-            function done(ok) {
-              copyStatus.textContent = ok
-                ? "Email copied to clipboard."
-                : "Select the address and copy manually (Cmd/Ctrl+C).";
-              window.setTimeout(function () {
-                copyStatus.textContent = "";
-              }, 3200);
-            }
-            copyTextToClipboard(emailAddr, done);
-          });
-        }
-
-        var reveals = document.querySelectorAll(".reveal");
-        var r;
-        for (r = 0; r < reveals.length; r++) {
-          reveals[r].classList.add("reveal--pending");
-        }
-
-        var reduceMotion = false;
-        try {
-          if (window.matchMedia) {
-            reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          }
-        } catch (mqErr) {}
-
-        if (!reduceMotion && typeof window.IntersectionObserver === "function") {
-          var observer = new window.IntersectionObserver(
-            function (entries) {
-              var i;
-              for (i = 0; i < entries.length; i++) {
-                if (entries[i].isIntersecting) {
-                  entries[i].target.classList.add("reveal--visible");
-                  entries[i].target.classList.remove("reveal--pending");
-                }
-              }
-            },
-            { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
-          );
-          for (r = 0; r < reveals.length; r++) {
-            observer.observe(reveals[r]);
-          }
-        } else {
-          for (r = 0; r < reveals.length; r++) {
-            reveals[r].classList.add("reveal--visible");
-            reveals[r].classList.remove("reveal--pending");
-          }
-        }
-      })();
-    </script>
+    <script src="js/theme-ui.js"></script>
+    <script src="js/tenure.js"></script>
+    <script src="js/clipboard.js"></script>
+    <script src="js/reveal.js"></script>
   </body>
 </html>
