@@ -252,16 +252,37 @@
         </div>
       </section>
 
-      <section class="section section-alt reveal" id="summary">
-        <div class="wrap narrow">
-          <header class="section-head">
-            <h2>Professional summary</h2>
-            <p>
-              AWS Certified Solutions Architect Associate with a track record of shipping
-              reliable pipelines, GitOps workflows, and production Kubernetes — paired
-              with strong incident response, RCA, and cross-team collaboration.
-            </p>
-          </header>
+      <section class="section section-alt reveal summary-section" id="summary" aria-labelledby="summary-heading">
+        <div class="wrap summary-wrap">
+          <div class="summary-panel">
+            <header class="summary-panel__head">
+              <p class="eyebrow">How I work</p>
+              <h2 id="summary-heading">Professional summary</h2>
+            </header>
+            <div class="summary-panel__body">
+              <p class="summary-lede">
+                I am a <strong>Lead DevOps Engineer</strong> based in <strong>Noida, India</strong>, with an
+                <strong>AWS Solutions Architect – Associate</strong> credential. Most of my week lives where release
+                automation meets real traffic: <strong>CI/CD</strong>, <strong>GitOps</strong>, and
+                <strong>production Kubernetes</strong> estates that have to stay boring at 3&nbsp;a.m.
+              </p>
+              <ul class="summary-strip" aria-label="Core focus areas">
+                <li>AWS architecture</li>
+                <li>CI/CD &amp; GitOps</li>
+                <li>Kubernetes ops</li>
+                <li>Observability</li>
+                <li>Incidents &amp; RCA</li>
+              </ul>
+              <p class="summary-detail">
+                I bias toward <strong>observability</strong> that shortens triage, <strong>incident command</strong> with
+                clear stakeholder updates, and <strong>blameless RCAs</strong> that change the system—not just the ticket.
+                That posture has held up behind <strong>100M+ users</strong> and alongside <strong>enterprise developer
+                platforms</strong> (GitHub Enterprise, Jira &amp; Confluence Data Center) for tens of thousands of
+                engineers. The through-line is simple: ship reliable platforms, document the sharp edges, and leave the
+                on-call rotation with a better runway than I found it.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -791,8 +812,25 @@
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <p>© <span id="year"></span> Rishabh Gupta</p>
-        <p class="footer-note">Light/dark preference is stored in this browser.</p>
+        <div class="footer-brand">
+          <p class="footer-copy">
+            <span class="footer-cr">© <span id="year"></span></span>
+            <span class="footer-name">Rishabh Gupta</span>
+          </p>
+          <p class="footer-tagline">Lead DevOps · Cloud · Noida, India</p>
+        </div>
+        <div class="footer-aside">
+          <p class="footer-theme-card" title="Theme preference is saved with localStorage in this browser.">
+            <span class="footer-theme-card__icons" aria-hidden="true">
+              <span class="footer-theme-card__icon footer-theme-card__icon--sun"></span>
+              <span class="footer-theme-card__icon footer-theme-card__icon--moon"></span>
+            </span>
+            <span class="footer-theme-card__text">
+              <strong>Theme</strong> follows this device—toggle it anytime in the header. Nothing syncs to a server;
+              it is just for your eyes here.
+            </span>
+          </p>
+        </div>
       </div>
     </footer>
     <script src="js/theme-ui.js"></script>
