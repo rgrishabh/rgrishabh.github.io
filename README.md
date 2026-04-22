@@ -30,6 +30,8 @@ Open `http://localhost:8080`. Using a local server avoids `file://` quirks with 
 
 For `username.github.io`, use **Settings → Pages → Build and deployment → Branch** and publish from **`main`** (or your default branch) with folder **`/` (root)**.
 
+The CV PDF is served at **`/assets/Rishabh_DevOps_4.pdf`** (not the repository root). Update any external bookmarks or links that still point to `/Rishabh_DevOps_4.pdf`.
+
 If you later move the site under a `/docs` folder, change the Pages “folder” setting to **`/docs`** accordingly.
 
 ## Contributing
