@@ -42,23 +42,27 @@
     <div class="grid-fade" aria-hidden="true"></div>
 
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
+    <header class="site-header" id="site-header">
       <div class="wrap header-inner">
         <a class="logo" href="#top" aria-label="Rishabh Gupta — home">
           <span class="logo-glow"></span>
           <span class="logo-text">Rishabh Gupta</span>
         </a>
         <div class="header-end">
-          <nav class="nav" aria-label="Primary">
-            <a href="#summary">Summary</a>
-            <a href="#tools">Tools</a>
-            <a href="#spotlight">Highlights</a>
-            <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
-            <a href="#playbook">Playbook</a>
-            <a href="#background">Background</a>
-            <a href="#contact">Contact</a>
-          </nav>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle__bars" aria-hidden="true">
+              <span class="nav-toggle__bar"></span>
+              <span class="nav-toggle__bar"></span>
+              <span class="nav-toggle__bar"></span>
+            </span>
+          </button>
           <button
             type="button"
             class="theme-toggle"
@@ -80,7 +84,18 @@
             </span>
           </button>
         </div>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
+          <a href="#summary">Summary</a>
+          <a href="#tools">Tools</a>
+          <a href="#spotlight">Highlights</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#playbook">Playbook</a>
+          <a href="#background">Background</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
+      <div id="nav-backdrop" class="nav-backdrop" hidden aria-hidden="true"></div>
     </header>
 
     <main id="main">
@@ -834,6 +849,7 @@
       </div>
     </footer>
     <script src="js/theme-ui.js"></script>
+    <script src="js/nav-mobile.js"></script>
     <script src="js/tenure.js"></script>
     <script src="js/clipboard.js"></script>
     <script src="js/reveal.js"></script>

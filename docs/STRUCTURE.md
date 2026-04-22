@@ -15,6 +15,7 @@ This document describes how the portfolio repository is organized. The **publish
 │   └── styles.css            # Global styles + light/dark tokens
 ├── js/
 │   ├── theme-ui.js           # Theme toggle, theme-color meta, copyright year
+│   ├── nav-mobile.js         # Hamburger menu (≤767px): open/close, backdrop, Escape
 │   ├── tenure.js             # Hero / bento / contact tenure strings
 │   ├── clipboard.js          # Copy email + status message
 │   └── reveal.js             # IntersectionObserver scroll reveals

@@ -20,8 +20,9 @@ This repository is a personal portfolio. Small fixes (typos, accessibility, brok
 Scripts live under `js/` and load in this order from `index.html`:
 
 1. `theme-ui.js` — theme toggle and footer year  
-2. `tenure.js` — experience duration text  
-3. `clipboard.js` — copy-email button  
-4. `reveal.js` — scroll animations  
+2. `nav-mobile.js` — mobile hamburger menu (viewport ≤767px)  
+3. `tenure.js` — experience duration text  
+4. `clipboard.js` — copy-email button  
+5. `reveal.js` — scroll animations  
 
 The small boot script in `<head>` avoids a flash of the wrong theme; leave it inline unless you have a strong reason to change it.

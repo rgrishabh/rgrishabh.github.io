@@ -8,7 +8,7 @@ Personal portfolio for **Rishabh Gupta** — static HTML/CSS, no build step. Ser
 |------|--------|
 | [`index.html`](index.html) | Single-page site markup |
 | [`css/styles.css`](css/styles.css) | All styles (dark/light themes) |
-| [`js/`](js/) | Small scripts: theme UI, tenure copy, clipboard, scroll reveal |
+| [`js/`](js/) | Theme UI, mobile nav, tenure copy, clipboard, scroll reveal |
 | [`assets/`](assets/) | Images, CV PDF, and other binaries |
 | [`favicon.svg`](favicon.svg) | Site icon |
 | [`.nojekyll`](.nojekyll) | Disables Jekyll so static files are served as-is |
