@@ -600,59 +600,106 @@
         </div>
       </section>
 
-      <section class="section section-alt reveal" id="background" aria-labelledby="background-heading">
+      <section class="section section-alt reveal cred-section" id="background" aria-labelledby="background-heading">
         <div class="wrap">
-          <header class="section-head">
+          <header class="section-head cred-section-head">
+            <p class="eyebrow">Background</p>
             <h2 id="background-heading">Education &amp; certifications</h2>
-            <p>Academic record and AWS certification.</p>
+            <p class="cred-section-lead">
+              Computer-science fundamentals from formal study, plus an AWS Solutions Architect – Associate credential
+              earned on the job. That combination is what I lean on when designing platforms, tightening security, and
+              keeping cloud spend predictable.
+            </p>
           </header>
           <div class="cred-grid">
-            <article class="cred-card tilt-hover">
-              <header class="section-head section-head--tight">
+            <article class="cred-card cred-card--cert tilt-hover">
+              <header class="cred-card-head">
+                <span class="cred-card-kicker">Vendor credential</span>
                 <h3 class="cred-card-title">Certifications</h3>
+                <p class="cred-card-intro">Industry-issued validation that matches the architectures I ship in production.</p>
               </header>
-              <ul class="cred-list">
-                <li class="cred-cert-row">
+              <div class="cred-cert-panel">
+                <a
+                  class="cred-aws-badge-link cred-aws-badge-link--block"
+                  href="https://www.credly.com/earner/earned/badge/67a14fe9-6204-4d8c-9754-b2fefa6791af"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-labelledby="cred-saa-heading cred-badge-link-hint"
+                >
+                  <span id="cred-badge-link-hint" class="sr-only">Opens the verified digital badge on Credly.</span>
                   <div class="cred-badge-frame">
-                    <a
-                      class="cred-aws-badge-link"
-                      href="https://www.credly.com/earner/earned/badge/67a14fe9-6204-4d8c-9754-b2fefa6791af"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="Open verified badge on Credly"
-                    >
-                      <img
-                        src="assets/aws-certified-saa-badge.png"
-                        alt="AWS Certified Solutions Architect – Associate"
-                        width="120"
-                        height="120"
-                        class="cred-aws-badge-img"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </a>
+                    <img
+                      src="assets/aws-certified-saa-badge.png"
+                      alt=""
+                      width="120"
+                      height="120"
+                      class="cred-aws-badge-img"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
-                  <div class="cred-cert-text">
-                    <strong>AWS Certified Solutions Architect – Associate</strong>
-                    <span class="cred-note">Verified on <a class="inline-link" href="https://www.credly.com/earner/earned/badge/67a14fe9-6204-4d8c-9754-b2fefa6791af" target="_blank" rel="noopener noreferrer">Credly</a></span>
-                  </div>
-                </li>
-              </ul>
+                </a>
+                <div class="cred-cert-body">
+                  <p class="cred-cert-kicker">Amazon Web Services</p>
+                  <h4 id="cred-saa-heading" class="cred-cert-heading">Certified Solutions Architect – Associate</h4>
+                  <p class="cred-cert-desc">
+                    Covers resilient, secure, cost-aware designs on AWS—the same pillars I apply when building estates,
+                    CI/CD pipelines, and operational guardrails for live traffic.
+                  </p>
+                  <a
+                    class="cred-credly-cta"
+                    href="https://www.credly.com/earner/earned/badge/67a14fe9-6204-4d8c-9754-b2fefa6791af"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View verified badge on Credly
+                    <span class="cred-credly-cta__arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
             </article>
-            <article class="cred-card tilt-hover">
-              <header class="section-head section-head--tight">
+            <article class="cred-card cred-card--edu tilt-hover">
+              <header class="cred-card-head">
+                <span class="cred-card-kicker">Academic path</span>
                 <h3 class="cred-card-title">Education</h3>
+                <p class="cred-card-intro">Chronological record with institutions and aggregate scores.</p>
               </header>
-              <ul class="cred-list">
-                <li>
-                  <strong>B.Tech, Computer Science &amp; Engineering</strong> — Lovely Professional University (2022) ·
-                  <span class="cred-metric">83.4%</span>
+              <ul class="cred-edu-stack" role="list">
+                <li class="cred-edu-card">
+                  <div class="cred-edu-card__top">
+                    <strong class="cred-edu-card__title">B.Tech, Computer Science &amp; Engineering</strong>
+                    <div class="cred-edu-card__pills" role="group" aria-label="Completion year and score">
+                      <span class="cred-pill" title="Year of completion">2022</span>
+                      <span class="cred-pill cred-pill--accent" title="Aggregate score">83.4%</span>
+                    </div>
+                  </div>
+                  <p class="cred-edu-card__inst">Lovely Professional University</p>
+                  <p class="cred-edu-card__note">
+                    Four-year CSE track across OS, DBMS, networks, and algorithms—context I still use when reasoning
+                    about services, failures, and automation.
+                  </p>
                 </li>
-                <li>
-                  <strong>Intermediate</strong> — SVM Inter College (2018) · <span class="cred-metric">85.2%</span>
+                <li class="cred-edu-card">
+                  <div class="cred-edu-card__top">
+                    <strong class="cred-edu-card__title">Intermediate (higher secondary)</strong>
+                    <div class="cred-edu-card__pills" role="group" aria-label="Completion year and score">
+                      <span class="cred-pill" title="Year of completion">2018</span>
+                      <span class="cred-pill cred-pill--accent" title="Aggregate score">85.2%</span>
+                    </div>
+                  </div>
+                  <p class="cred-edu-card__inst">SVM Inter College</p>
+                  <p class="cred-edu-card__note">Science-focused pre-university program before engineering admissions.</p>
                 </li>
-                <li>
-                  <strong>High school</strong> — SVM Inter College (2016) · <span class="cred-metric">84.3%</span>
+                <li class="cred-edu-card">
+                  <div class="cred-edu-card__top">
+                    <strong class="cred-edu-card__title">High school</strong>
+                    <div class="cred-edu-card__pills" role="group" aria-label="Completion year and score">
+                      <span class="cred-pill" title="Year of completion">2016</span>
+                      <span class="cred-pill cred-pill--accent" title="Aggregate score">84.3%</span>
+                    </div>
+                  </div>
+                  <p class="cred-edu-card__inst">SVM Inter College</p>
+                  <p class="cred-edu-card__note">Secondary school with a science stream—early grounding in maths and physics.</p>
                 </li>
               </ul>
             </article>

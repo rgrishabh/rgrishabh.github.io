@@ -1085,57 +1085,98 @@ html[data-theme="light"] .chips li {
   font-weight: 600;
 }
 
-.cred-grid {
-  display: grid;
-  gap: 1.25rem;
+.cred-section-head {
+  margin-bottom: 0.25rem;
 }
 
-@media (min-width: 800px) {
+.cred-section-lead {
+  margin: 0;
+  max-width: 64ch;
+  font-size: var(--step-0);
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.cred-grid {
+  display: grid;
+  gap: 1.35rem;
+  align-items: stretch;
+}
+
+@media (min-width: 860px) {
   .cred-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.08fr 0.92fr;
   }
 }
 
 .cred-card {
-  padding: 1.35rem 1.35rem 1.2rem;
+  padding: 1.4rem 1.4rem 1.35rem;
   border-radius: var(--radius-md);
   background: var(--bg-card);
   border: 1px solid var(--border);
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.cred-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  color: var(--muted);
-  font-size: var(--step--1);
+.cred-card--cert {
+  box-shadow: inset 3px 0 0 0 var(--accent-2);
 }
 
-.cred-list li {
-  margin-bottom: 0.85rem;
-  padding-bottom: 0.85rem;
-  border-bottom: 1px solid var(--line);
+.cred-card--edu {
+  box-shadow: inset 3px 0 0 0 rgba(148, 163, 184, 0.28);
 }
 
-.cred-list li:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
+html[data-theme="light"] .cred-card--edu {
+  box-shadow: inset 3px 0 0 0 rgba(2, 132, 199, 0.25);
 }
 
-.cred-list strong {
-  color: var(--text);
+.cred-card-head {
+  margin-bottom: 1.1rem;
+}
+
+.cred-card-kicker {
   display: block;
-  margin-bottom: 0.2rem;
-  font-size: var(--step-0);
+  margin: 0 0 0.38rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-2);
 }
 
-.cred-cert-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 1.1rem;
+.cred-card-head .cred-card-title {
+  margin: 0 0 0.45rem;
+}
+
+.cred-card-intro {
+  margin: 0;
+  max-width: 48ch;
+  font-size: var(--step--1);
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.cred-cert-panel {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.15rem 1.35rem;
+  align-items: start;
+}
+
+@media (max-width: 540px) {
+  .cred-cert-panel {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .cred-cert-body {
+    width: 100%;
+    max-width: 36rem;
+  }
+}
+
+.cred-aws-badge-link--block {
+  display: inline-block;
+  line-height: 0;
 }
 
 .cred-badge-frame {
@@ -1188,22 +1229,169 @@ html[data-theme="light"] .cred-aws-badge-img {
   filter: drop-shadow(0 3px 12px rgba(15, 23, 42, 0.1));
 }
 
-.cred-cert-text {
-  flex: 1;
-  min-width: min(100%, 220px);
-  padding-top: 0.2rem;
+.cred-cert-body {
+  min-width: 0;
+  padding-top: 0.1rem;
 }
 
-.cred-note {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--muted);
-  margin-top: 0.25rem;
-}
-
-.cred-metric {
+.cred-cert-kicker {
+  margin: 0 0 0.28rem;
   font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cred-cert-heading {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.22rem);
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.cred-cert-desc {
+  margin: 0 0 1rem;
+  font-size: var(--step--1);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 52ch;
+}
+
+.cred-credly-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.75rem 0.42rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.32);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--accent-2);
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.cred-credly-cta:hover {
+  border-color: var(--accent-2);
+  background: rgba(56, 189, 248, 0.08);
+  color: var(--text);
+}
+
+html[data-theme="light"] .cred-credly-cta {
+  border-color: rgba(2, 132, 199, 0.28);
+}
+
+html[data-theme="light"] .cred-credly-cta:hover {
+  background: rgba(2, 132, 199, 0.08);
+}
+
+.cred-credly-cta__arrow {
+  transition: transform 0.2s ease;
+}
+
+.cred-credly-cta:hover .cred-credly-cta__arrow {
+  transform: translateX(3px);
+}
+
+.cred-edu-stack {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.cred-edu-card {
+  padding: 1rem 1.05rem 1.05rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+html[data-theme="light"] .cred-edu-card {
+  background: rgba(15, 23, 42, 0.035);
+}
+
+.cred-edu-card:hover {
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+html[data-theme="light"] .cred-edu-card:hover {
+  border-color: rgba(2, 132, 199, 0.18);
+}
+
+.cred-edu-card__top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem 0.85rem;
+  align-items: start;
+}
+
+@media (max-width: 420px) {
+  .cred-edu-card__top {
+    grid-template-columns: 1fr;
+  }
+
+  .cred-edu-card__pills {
+    justify-content: flex-start;
+  }
+}
+
+.cred-edu-card__title {
+  margin: 0;
+  font-size: var(--step-0);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.cred-edu-card__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: flex-end;
+}
+
+.cred-pill {
+  display: inline-block;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
   color: var(--hero-muted);
+  white-space: nowrap;
+}
+
+.cred-pill--accent {
+  border-color: rgba(56, 189, 248, 0.35);
+  color: var(--accent-2);
+}
+
+html[data-theme="light"] .cred-pill--accent {
+  border-color: rgba(2, 132, 199, 0.3);
+  color: var(--accent-2);
+}
+
+.cred-edu-card__inst {
+  margin: 0.4rem 0 0.45rem;
+  font-size: var(--step--1);
+  color: var(--hero-muted);
+}
+
+.cred-edu-card__note {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 52ch;
 }
 
 .cred-card-title {
