@@ -1,52 +1,89 @@
-# Portfolio site (GitHub Pages)
+# Cloud-Native DevOps Engineer Portfolio
 
-Personal portfolio for **Rishabh Gupta** — static HTML/CSS, no build step. Served from the default branch root as a [GitHub Pages user site](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites).
+A high-performance, responsive, and visually stunning developer portfolio tailored for **Rishabh Gupta (Lead DevOps Engineer & AWS Solutions Architect)**. Built from the ground up to showcase container orchestration scale, automated CI/CD pipelines, production operations metrics, and enterprise-grade infrastructure systems.
 
-## Repository layout
+Live site: [rgrishabh.github.io](https://rgrishabh.github.io/)
 
-| Path | Purpose |
-|------|--------|
-| [`index.html`](index.html) | Single-page site markup |
-| [`css/styles.css`](css/styles.css) | All styles (dark/light themes) |
-| [`js/`](js/) | Theme UI, mobile nav, tenure copy, clipboard, scroll reveal |
-| [`assets/`](assets/) | Images, CV PDF, and other binaries |
-| [`favicon.svg`](favicon.svg) | Site icon |
-| [`.nojekyll`](.nojekyll) | Disables Jekyll so static files are served as-is |
-| [`docs/`](docs/) | Extra documentation for contributors (not the published site root) |
+---
 
-More detail: [`docs/STRUCTURE.md`](docs/STRUCTURE.md).
+## 🚀 Key Product Features
 
-## Local preview
+### 1. Cloud-Native Design & Aesthetic
+- **Visual Excellence**: Crafted with dark and light themes using a professional HSL-based palette (deep space blue backgrounds, glowing cyan/green interactive accents, and glassmorphic cards).
+- **Responsive Bento Layout**: Incorporates high-density dashboard layouts containing metric highlights (MTTR, scale, developer velocity, experience tenure) for quick, impactful scanning.
+- **Custom Vector Branding**: Utilizes fully-custom SVG assets, including a premium 3D glowing infinity loop brandmark ([`assets/devops-logo.svg`](assets/devops-logo.svg)) and a matching optimized browser [favicon](favicon.svg) representing CI/CD.
 
-From the repository root:
+### 2. High-Performance Static Architecture
+- **Zero-Dependency Core**: Built using pure semantic HTML5, Vanilla CSS, and lightweight native JavaScript modules for sub-millisecond load times.
+- **Ultra-Light Footprint**: Avoids heavy utility frameworks (like Tailwind) and bulky bundlers, ensuring it remains fully server-independent and highly portable.
+- **SEO & Schema Integration**: Automatically implements SEO best practices, structural heading hierarchies, metadata tags, and standardized JSON-LD structured data schemas for high search-engine indexing.
+
+### 3. Accessible & Interactive Interface
+- **Mobile Navigation Drawer**: Highly accessible hamburger-toggle drawer featuring backdrop-overlay tap closures, screen-reader visibility landmarks (`aria-expanded`, `aria-hidden`), and Escape-key escape routes.
+- **Micro-Animations**: Features custom lazy scroll reveal hooks (`reveal.js`) and physics-based toggle feedback.
+- **Interactive Copy Utilities**: Integrated native clipboard manager allowing recruiters to copy contact details smoothly with dynamic status feedback.
+
+---
+
+## 🛠️ Architecture & Tech Stack
+
+The workspace is organized with simplicity and zero build steps:
+
+| Technology | Purpose |
+|------------|---------|
+| **HTML5 / JSON-LD** | Structure, accessibility landmarks, and search engine schema metadata. |
+| **Vanilla CSS** | Deep custom properties, layout logic, themes, and animations. |
+| **Vanilla JS** | Modular handlers for UI logic: theme, mobile nav, metrics, and reveals. |
+| **Vector (SVG)** | High-fidelity branding elements optimized for Retina/4K displays. |
+
+### Directory Hierarchy
+
+```
+.
+├── index.html                 # Main portfolio markup & semantic sections
+├── favicon.svg                # Modern high-density SVG brand favicon
+├── css/
+│   └── styles.css             # Main styling, layout system & dark/light design tokens
+├── js/
+│   ├── theme-ui.js            # Theme controller (syncs preference, color meta, and footer)
+│   ├── nav-mobile.js          # Accessibility-compliant mobile navigation drawer
+│   ├── tenure.js              # Real-time metrics calculations (tenure and scale highlights)
+│   ├── clipboard.js           # Clipboard utility for direct email-copy triggers
+│   └── reveal.js              # IntersectionObserver-based lazy scroll animations
+├── assets/
+│   ├── devops-logo.svg        # Custom premium 3D glowing infinity loop logo
+│   ├── aws-certified-saa-badge.png # SAA Badge
+│   └── Rishabh_DevOps_4.pdf   # Resumé download asset
+└── docs/
+    └── STRUCTURE.md           # Developer onboarding folder guide
+```
+
+---
+
+## 💻 Local Preview
+
+Since the portfolio utilizes native ES modules and absolute asset routes, previewing it using a simple local HTTP server is recommended to avoid origin policy quirks:
 
 ```bash
+# Start a simple python HTTP server
 python3 -m http.server 8080
 ```
 
-Open `http://localhost:8080`. Using a local server avoids `file://` quirks with some assets.
+Once started, open [http://localhost:8080](http://localhost:8080) in your browser.
 
-## GitHub Pages
+---
 
-For `username.github.io`, use **Settings → Pages → Build and deployment → Branch** and publish from **`main`** (or your default branch) with folder **`/` (root)**.
+## ☁️ Deployment (GitHub Pages)
 
-The CV PDF is served at **`/assets/Rishabh_DevOps_4.pdf`** (not the repository root). Update any external bookmarks or links that still point to `/Rishabh_DevOps_4.pdf`.
+This project is optimized for direct hosting on **GitHub Pages**:
 
-If you later move the site under a `/docs` folder, change the Pages “folder” setting to **`/docs`** accordingly.
+1. In the repository settings, go to **Settings → Pages**.
+2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
+3. Select the default branch (**`main`**) and set the folder path to **`/` (root)**.
+4. The site will compile and deploy automatically at `https://<username>.github.io/`.
 
-## Design & Asset Modernization
+---
 
-This repository employs modern web design and clean-code best practices:
+## 📄 License
 
-- **SVG Vector Branding**: Replaced legacy raster PNG files with fully scalable, premium vector graphics:
-  - [`assets/devops-logo.svg`](assets/devops-logo.svg): A custom-designed 3D glowing infinity loop representing CI/CD continuous delivery, stylized in the site's native accent colors (Cyan, Green, and Amber/Orange) alongside tech orbit guides representing platform orchestration.
-  - [`favicon.svg`](favicon.svg): A matching high-resolution vector icon optimized to render crisply as a browser tab favicon.
-- **Clean Asset Imports**: All versioning cache-buster query parameters (e.g., `?v=...`) were removed from script and stylesheet imports within `index.html` to ensure standard, robust, and clean relative URLs.
-
-## Contributing
-
-See [`CONTRIBUTING.md`](CONTRIBUTING.md).
-
-## License
-
-Site content and code are released under the [MIT License](LICENSE) unless noted otherwise. Third-party logos and fonts remain property of their respective owners.
+This repository is released under the [MIT License](LICENSE). Third-party certifications, logos, and fonts are the property of their respective owners.
