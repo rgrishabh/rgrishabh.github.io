@@ -1,7 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="9" fill="#08111f"/>
-  <path d="M9 21.5V10.8L16 7l7 3.8v10.7" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M10.5 21.5h11" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
-  <path d="M16 11.5v9" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
-  <path d="M12.4 15.1 16 11.5l3.6 3.6" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <!-- Define harmonic gradients -->
+    <linearGradient id="leftLoopGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#22c55e" />
+    </linearGradient>
+    <linearGradient id="rightLoopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Dark tech background shield optimized for tabs -->
+  <rect width="100" height="100" rx="24" fill="#08111f" />
+  
+  <!-- Outer rings for tech styling -->
+  <circle cx="50" cy="50" r="41" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.3" />
+  
+  <!-- Right Loop segment -->
+  <path d="M 50 50 C 62 66, 78 66, 82 50 C 86 34, 70 34, 50 50" 
+        stroke="url(#rightLoopGrad)" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" />
+        
+  <!-- Left Loop segment (creates overlap) -->
+  <path d="M 50 50 C 30 66, 14 66, 18 50 C 22 34, 38 34, 50 50" 
+        stroke="url(#leftLoopGrad)" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" />
 </svg>

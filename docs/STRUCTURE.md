@@ -21,6 +21,7 @@ This document describes how the portfolio repository is organized. The **publish
 │   └── reveal.js             # IntersectionObserver scroll reveals
 ├── assets/
 │   ├── aws-certified-saa-badge.png
+│   ├── devops-logo.svg       # Custom modern 3D infinity loop logo
 │   └── Rishabh_DevOps_4.pdf  # CV download
 ├── docs/
 │   └── STRUCTURE.md          # This file

@@ -1175,11 +1175,21 @@ html[data-theme="light"] .contact-link {
   }
 }
 
+/* ============================================================================
+   RESPONSIVE DESIGN & MOBILE LAYOUT BREAKPOINT (767px and below)
+   ============================================================================ */
 @media (max-width: 767px) {
+  
+  /* --- 1. Site Header & Sticky-to-Fixed Layout States --- */
   .header-inner {
     min-height: 62px;
   }
 
+  /**
+   * When the mobile drawer is open (.is-nav-open), force the sticky header 
+   * to position:fixed. This prevents sticky breakdown bugs caused by body 
+   * overflow:hidden, keeping the header and toggle always pinned to the viewport.
+   */
   .site-header.is-nav-open {
     position: fixed !important;
     top: 0;
@@ -1193,6 +1203,7 @@ html[data-theme="light"] .contact-link {
     z-index: 4;
   }
 
+  /* --- 2. Mobile Menu Toggle Button (Hamburger) --- */
   .nav-toggle {
     display: inline-flex;
   }
@@ -1204,16 +1215,17 @@ html[data-theme="light"] .contact-link {
     color: #0f172a;
   }
 
-  /* HTML nav-locked state to prevent scrolling without jumping/scrolling to top */
+  /* --- 3. Body Scroll Lock States --- */
   html.nav-open,
   html.nav-open body {
     overflow: hidden !important;
   }
 
-  /* Floating Nav Menu - Blends with Header Color */
+  /* --- 4. Floating Mobile Navigation Drawer --- */
   .nav {
     position: fixed;
     z-index: 3;
+    /* Dynamically positioned exactly below the header's pixel height offset */
     top: var(--site-header-bottom, 62px);
     left: 1rem;
     right: 1rem;
@@ -1226,6 +1238,8 @@ html[data-theme="light"] .contact-link {
     border-radius: 12px;
     background: var(--bg-soft);
     box-shadow: var(--shadow);
+    
+    /* Fade down transition parameters */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
@@ -1233,6 +1247,7 @@ html[data-theme="light"] .contact-link {
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s linear;
   }
 
+  /* Expand menu drawer on active state */
   .site-header.is-nav-open .nav {
     opacity: 1;
     visibility: visible;
@@ -1240,7 +1255,7 @@ html[data-theme="light"] .contact-link {
     pointer-events: auto;
   }
 
-  /* Clean Standard Links without Staggers or Liquid Accents */
+  /* --- 5. Navigation Links & Interactive Hover States --- */
   .nav a {
     padding: 0.85rem 1rem;
     border-radius: 8px;
@@ -1252,12 +1267,14 @@ html[data-theme="light"] .contact-link {
     transition: background 0.15s ease, color 0.15s ease;
   }
 
+  /* Standard link hover/focus states */
   .nav a:hover,
   .nav a:active {
     background: var(--surface);
     color: var(--accent-3);
   }
 
+  /* Dark mode color theme overrides for active links */
   html[data-theme="dark"] .nav a:hover,
   html[data-theme="dark"] .nav a:active {
     color: var(--accent-2);
