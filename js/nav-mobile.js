@@ -25,8 +25,44 @@
   var nav = document.getElementById("primary-nav");
   var backdrop = document.getElementById("nav-backdrop");
   var themeBtn = document.getElementById("theme-toggle");
+  var body = document.body;
 
   if (!header || !toggle || !nav) return;
+
+  var scrollY = 0;
+  var isLocked = false;
+
+  function lockScroll() {
+    if (isLocked || !body) return;
+    scrollY = typeof window.scrollY === "number" ? window.scrollY : window.pageYOffset || 0;
+    body.style.position = "fixed";
+    body.style.top = "-" + scrollY + "px";
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    isLocked = true;
+  }
+
+  function unlockScroll() {
+    if (!body) return;
+    if (!isLocked) {
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      body.style.width = "";
+      return;
+    }
+    body.style.position = "";
+    body.style.top = "";
+    body.style.left = "";
+    body.style.right = "";
+    body.style.width = "";
+    isLocked = false;
+    try {
+      window.scrollTo(0, scrollY);
+    } catch (e0) {}
+  }
 
   function syncHeaderOffset() {
     try {
@@ -52,6 +88,9 @@
     }
     if (open) {
       syncHeaderOffset();
+      lockScroll();
+    } else {
+      unlockScroll();
     }
   }
 
@@ -71,6 +110,12 @@
   if (backdrop) {
     backdrop.addEventListener("click", close);
   }
+
+  document.addEventListener("pointerdown", function (ev) {
+    if (!header.classList.contains("is-nav-open")) return;
+    if (header.contains(ev.target)) return;
+    close();
+  });
 
   if (themeBtn) {
     themeBtn.addEventListener("click", function () {
@@ -114,6 +159,10 @@
       close();
     }
   });
+
+  // Defensive: ensure no stale inline styles persist across hot reloads/cached scripts.
+  close();
+  unlockScroll();
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", syncHeaderOffset);
