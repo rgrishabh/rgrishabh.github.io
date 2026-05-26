@@ -15,6 +15,10 @@
   --line: rgba(159, 176, 195, 0.18);
   --header-bg: rgba(8, 17, 31, 0.84);
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+  --btn-primary-bg: linear-gradient(135deg, var(--accent), var(--accent-2));
+  --btn-primary-fg: #11151b;
+  --btn-primary-hover-bg: linear-gradient(135deg, #fbbf24, #34d399);
+  --btn-primary-shadow: none;
   --font-sans: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
@@ -36,6 +40,10 @@ html[data-theme="light"] {
   --line: rgba(15, 23, 42, 0.09);
   --header-bg: rgba(246, 248, 251, 0.88);
   --shadow: 0 22px 60px rgba(15, 23, 42, 0.1);
+  --btn-primary-bg: linear-gradient(135deg, #0c4a6e, #0369a1);
+  --btn-primary-fg: #f8fafc;
+  --btn-primary-hover-bg: linear-gradient(135deg, #075985, #0284c7);
+  --btn-primary-shadow: 0 4px 16px rgba(3, 105, 161, 0.22);
 }
 
 *,
@@ -362,8 +370,24 @@ html[data-theme="light"] .theme-icon--sun {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #11151b;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
+  box-shadow: var(--btn-primary-shadow);
+}
+
+.btn-primary:hover {
+  background: var(--btn-primary-hover-bg);
+}
+
+html[data-theme="light"] .btn-secondary {
+  border-color: rgba(15, 23, 42, 0.14);
+  background: #fff;
+  color: var(--text);
+}
+
+html[data-theme="light"] .btn-secondary:hover {
+  border-color: rgba(3, 105, 161, 0.35);
+  background: #f0f7fc;
 }
 
 .btn-secondary {
