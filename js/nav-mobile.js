@@ -1,12 +1,10 @@
 /**
- * Mobile navigation: fixed panel + backdrop. Safari/iOS-safe (no [hidden] on backdrop,
- * sync --site-header-bottom, width fallback, touch + click without double-toggle).
+ * Mobile navigation: panel, backdrop, scroll lock.
  */
 (function () {
   "use strict";
 
   var BP = 767;
-
   var mq =
     typeof window.matchMedia === "function"
       ? window.matchMedia("(max-width: " + BP + "px)")
@@ -26,6 +24,7 @@
   var toggle = document.getElementById("nav-toggle");
   var nav = document.getElementById("primary-nav");
   var backdrop = document.getElementById("nav-backdrop");
+  var themeBtn = document.getElementById("theme-toggle");
 
   if (!header || !toggle || !nav) return;
 
@@ -51,10 +50,6 @@
       backdrop.classList.toggle("is-active", open);
       backdrop.setAttribute("aria-hidden", open ? "false" : "true");
     }
-    try {
-      document.body.style.overflow = open ? "hidden" : "";
-      document.documentElement.style.overflow = open ? "hidden" : "";
-    } catch (e3) {}
     if (open) {
       syncHeaderOffset();
     }
@@ -68,30 +63,21 @@
     setOpen(!header.classList.contains("is-nav-open"));
   }
 
-  /* iOS Safari can delay click; touchend + click would double-toggle — gate with short window. */
-  var touchGateUntil = 0;
-  toggle.addEventListener(
-    "touchend",
-    function (ev) {
-      if (!isMobileNav()) return;
-      ev.preventDefault();
-      touchGateUntil = Date.now() + 450;
-      toggleMenu();
-    },
-    { passive: false }
-  );
-
-  toggle.addEventListener("click", function (ev) {
+  toggle.addEventListener("click", function () {
     if (!isMobileNav()) return;
-    if (Date.now() < touchGateUntil) {
-      ev.preventDefault();
-      return;
-    }
     toggleMenu();
   });
 
   if (backdrop) {
     backdrop.addEventListener("click", close);
+  }
+
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      if (isMobileNav() && header.classList.contains("is-nav-open")) {
+        close();
+      }
+    });
   }
 
   document.addEventListener("keydown", function (ev) {
@@ -115,8 +101,18 @@
   }
 
   window.addEventListener("resize", onViewportChange, { passive: true });
-  window.addEventListener("orientationchange", function () {
-    window.setTimeout(onViewportChange, 200);
+  window.addEventListener(
+    "orientationchange",
+    function () {
+      window.setTimeout(onViewportChange, 200);
+    },
+    { passive: true }
+  );
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "hidden") {
+      close();
+    }
   });
 
   if (document.readyState === "loading") {
