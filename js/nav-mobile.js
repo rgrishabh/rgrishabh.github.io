@@ -1,9 +1,19 @@
 /**
- * Mobile navigation: panel, backdrop, scroll lock.
+ * Mobile navigation — panel, backdrop, scroll lock.
+ *
+ * Scroll-lock strategy (cross-browser):
+ *   iOS Safari ignores overflow:hidden on <html>/<body> when the page is
+ *   already scrolled. The only reliable fix is position:fixed + scroll
+ *   restoration. We save scrollY before locking, apply position:fixed, and
+ *   restore the exact position after unlocking. We also temporarily disable
+ *   scroll-behavior:smooth so window.scrollTo() jumps instantly.
+ *
+ * Tested: iOS Safari 15+, Android Chrome, Samsung Internet, Firefox, Safari.
  */
 (function () {
   "use strict";
 
+  /* ── Breakpoint ─────────────────────────────────────────────────────────── */
   var BP = 767;
   var mq =
     typeof window.matchMedia === "function"
@@ -11,81 +21,108 @@
       : null;
 
   function isMobileNav() {
-    var w = typeof window.innerWidth === "number" ? window.innerWidth : BP + 1;
     if (mq) {
       try {
         if (mq.matches) return true;
-      } catch (e1) {}
+      } catch (e) {}
     }
-    return w <= BP;
+    return (window.innerWidth || BP + 1) <= BP;
   }
 
-  var header = document.getElementById("site-header");
-  var toggle = document.getElementById("nav-toggle");
-  var nav = document.getElementById("primary-nav");
+  /* ── DOM refs ───────────────────────────────────────────────────────────── */
+  var header   = document.getElementById("site-header");
+  var toggle   = document.getElementById("nav-toggle");
+  var nav      = document.getElementById("primary-nav");
   var backdrop = document.getElementById("nav-backdrop");
   var themeBtn = document.getElementById("theme-toggle");
-  var body = document.body;
+  var html     = document.documentElement;
+  var body     = document.body;
 
   if (!header || !toggle || !nav) return;
 
-  var scrollY = 0;
+  /* ── Scroll lock ────────────────────────────────────────────────────────── */
+  var savedScrollY = 0;
   var isLocked = false;
 
   function lockScroll() {
-    if (isLocked || !body) return;
-    scrollY = typeof window.scrollY === "number" ? window.scrollY : window.pageYOffset || 0;
-    body.style.position = "fixed";
-    body.style.top = "-" + scrollY + "px";
-    body.style.left = "0";
-    body.style.right = "0";
-    body.style.width = "100%";
+    if (isLocked) return;
+    // Read scroll position before any style change
+    savedScrollY =
+      window.pageYOffset !== undefined
+        ? window.pageYOffset
+        : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
+    // position:fixed is the only reliable cross-browser scroll-lock
+    // (iOS Safari 9-17 ignores overflow:hidden on scrolled pages)
+    body.style.overflow    = "hidden";
+    body.style.position    = "fixed";
+    body.style.top         = "-" + savedScrollY + "px";
+    body.style.left        = "0";
+    body.style.right       = "0";
+    body.style.width       = "100%";
+    // Keep vertical scrollbar space to avoid layout shift on desktop
+    body.style.overflowY   = "scroll";
     isLocked = true;
   }
 
   function unlockScroll() {
-    if (!body) return;
-    if (!isLocked) {
-      body.style.position = "";
-      body.style.top = "";
-      body.style.left = "";
-      body.style.right = "";
-      body.style.width = "";
-      return;
-    }
-    body.style.position = "";
-    body.style.top = "";
-    body.style.left = "";
-    body.style.right = "";
-    body.style.width = "";
+    if (!isLocked) return;
+
+    // Remove all inline styles set by lockScroll
+    body.style.overflow   = "";
+    body.style.position   = "";
+    body.style.top        = "";
+    body.style.left       = "";
+    body.style.right      = "";
+    body.style.width      = "";
+    body.style.overflowY  = "";
     isLocked = false;
+
+    // Restore scroll position. We must disable scroll-behavior:smooth
+    // temporarily — otherwise the browser animates the jump, causing the
+    // visible "sticking" effect especially on mid-page opens.
+    var prev = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
     try {
-      window.scrollTo(0, scrollY);
-    } catch (e0) {}
+      window.scrollTo(0, savedScrollY);
+    } catch (e) {
+      document.documentElement.scrollTop = savedScrollY;
+      document.body.scrollTop = savedScrollY; // Safari fallback
+    }
+    // Restore scroll-behavior after the next paint
+    requestAnimationFrame(function () {
+      html.style.scrollBehavior = prev || "";
+      savedScrollY = 0;
+    });
   }
 
+  /* ── Header height CSS custom property ─────────────────────────────────── */
   function syncHeaderOffset() {
     try {
-      var h = header.offsetHeight;
-      if (!h && header.getBoundingClientRect) {
-        h = Math.ceil(header.getBoundingClientRect().height);
-      }
-      document.documentElement.style.setProperty("--site-header-bottom", (h || 56) + "px");
-    } catch (e2) {}
+      var h = header.offsetHeight ||
+              Math.ceil(header.getBoundingClientRect().height);
+      html.style.setProperty("--site-header-bottom", (h || 62) + "px");
+    } catch (e) {}
   }
 
+  /* ── Open / close ───────────────────────────────────────────────────────── */
   function setOpen(open) {
-    if (!isMobileNav()) {
-      open = false;
-    }
+    // Never open on desktop
+    if (!isMobileNav()) open = false;
+
+    var isOpen = header.classList.contains("is-nav-open");
+    if (open === isOpen) return; // no-op if already in desired state
+
     header.classList.toggle("is-nav-open", open);
-    document.documentElement.classList.toggle("nav-open", open);
+    html.classList.toggle("nav-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    toggle.setAttribute("aria-label",    open ? "Close menu" : "Open menu");
+
     if (backdrop) {
       backdrop.classList.toggle("is-active", open);
-      backdrop.setAttribute("aria-hidden", open ? "false" : "true");
+      backdrop.setAttribute("aria-hidden",  open ? "false" : "true");
     }
+
     if (open) {
       syncHeaderOffset();
       lockScroll();
@@ -94,89 +131,123 @@
     }
   }
 
-  function close() {
-    setOpen(false);
-  }
+  function close()      { setOpen(false); }
+  function toggleMenu() { setOpen(!header.classList.contains("is-nav-open")); }
 
-  function toggleMenu() {
-    setOpen(!header.classList.contains("is-nav-open"));
-  }
+  /* ── Event listeners ────────────────────────────────────────────────────── */
 
-  toggle.addEventListener("click", function () {
+  // Hamburger button
+  toggle.addEventListener("click", function (ev) {
+    ev.stopPropagation();
     if (!isMobileNav()) return;
     toggleMenu();
   });
 
+  // Backdrop tap / click
   if (backdrop) {
-    backdrop.addEventListener("click", close);
+    backdrop.addEventListener("click",      close);
+    backdrop.addEventListener("touchstart", close, { passive: true });
   }
 
+  // Tap / pointer outside header closes menu
   document.addEventListener("pointerdown", function (ev) {
     if (!header.classList.contains("is-nav-open")) return;
     if (header.contains(ev.target)) return;
     close();
   });
 
+  // Touch outside header (covers browsers where pointerdown isn't reliable)
+  document.addEventListener("touchstart", function (ev) {
+    if (!header.classList.contains("is-nav-open")) return;
+    if (header.contains(ev.target)) return;
+    close();
+  }, { passive: true });
+
+  // Theme toggle closes menu on mobile
   if (themeBtn) {
     themeBtn.addEventListener("click", function () {
-      if (isMobileNav() && header.classList.contains("is-nav-open")) {
-        close();
-      }
+      if (isMobileNav() && header.classList.contains("is-nav-open")) close();
     });
   }
 
+  // Escape key
   document.addEventListener("keydown", function (ev) {
-    if (ev.key === "Escape" && header.classList.contains("is-nav-open")) {
+    if ((ev.key === "Escape" || ev.key === "Esc") &&
+         header.classList.contains("is-nav-open")) {
       close();
       toggle.focus();
     }
   });
 
+  // Tab out of menu closes it
+  document.addEventListener("focusin", function (ev) {
+    if (!header.classList.contains("is-nav-open")) return;
+    if (!header.contains(ev.target)) close();
+  });
+
+  // Resize / orientation change
   function onViewportChange() {
     syncHeaderOffset();
-    if (!isMobileNav()) {
-      close();
-    }
+    if (!isMobileNav()) close();
   }
 
-  if (mq && typeof mq.addEventListener === "function") {
-    mq.addEventListener("change", onViewportChange);
-  } else if (mq && typeof mq.addListener === "function") {
-    mq.addListener(onViewportChange);
+  if (mq) {
+    if (typeof mq.addEventListener === "function") {
+      mq.addEventListener("change", onViewportChange);
+    } else if (typeof mq.addListener === "function") {
+      // Legacy Safari / older browsers
+      mq.addListener(onViewportChange);
+    }
   }
 
   window.addEventListener("resize", onViewportChange, { passive: true });
   window.addEventListener(
     "orientationchange",
-    function () {
-      window.setTimeout(onViewportChange, 200);
-    },
+    function () { window.setTimeout(onViewportChange, 300); },
     { passive: true }
   );
 
+  // Close & unlock when tab is backgrounded (prevents stale lock on return)
   document.addEventListener("visibilitychange", function () {
-    if (document.visibilityState === "hidden") {
+    if (document.visibilityState === "hidden") close();
+  });
+
+  // Page show (back-forward cache restore on iOS/Safari)
+  window.addEventListener("pageshow", function (ev) {
+    if (ev.persisted) {
       close();
+      unlockScroll(); // ensure no stale body styles
     }
   });
 
-  // Defensive: ensure no stale inline styles persist across hot reloads/cached scripts.
-  close();
+  /* ── Initialise: clear any stale state ─────────────────────────────────── */
+  // Run close() first so aria attributes are correct from the start
+  header.classList.remove("is-nav-open");
+  html.classList.remove("nav-open");
+  if (backdrop) {
+    backdrop.classList.remove("is-active");
+    backdrop.setAttribute("aria-hidden", "true");
+  }
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.setAttribute("aria-label", "Open menu");
+
+  // Clear any body styles left from a previous script run or hot reload
+  isLocked = true;          // force the guard to pass
+  savedScrollY = 0;
   unlockScroll();
 
+  // Measure header after layout is ready
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", syncHeaderOffset);
   } else {
     syncHeaderOffset();
   }
 
+  /* ── Nav links close the drawer ─────────────────────────────────────────── */
   var links = nav.querySelectorAll("a[href^='#']");
-  var i;
-  for (i = 0; i < links.length; i++) {
+  for (var i = 0; i < links.length; i++) {
     links[i].addEventListener("click", function () {
-      if (isMobileNav()) {
-        close();
-      }
+      if (isMobileNav()) close();
     });
   }
 })();

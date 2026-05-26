@@ -284,11 +284,13 @@ html[data-theme="light"] .theme-icon--sun {
 .nav-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 1;
+  /* z-index 49: above page content, below site-header (z-index 50) */
+  z-index: 49;
   background: rgba(16, 19, 26, 0.5);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s linear;
 }
 
 html[data-theme="light"] .nav-backdrop.is-active {
@@ -300,6 +302,12 @@ html[data-theme="light"] .nav-backdrop.is-active {
   visibility: visible;
   pointer-events: auto;
 }
+
+/*
+  Scroll lock is handled entirely in nav-mobile.js via position:fixed.
+  iOS Safari 9-17 ignores overflow:hidden on scrolled pages, so we cannot
+  rely on CSS alone. The JS approach saves/restores window.scrollY correctly.
+*/
 
 .hero {
   min-height: auto;
@@ -1106,11 +1114,25 @@ html[data-theme="light"] .contact-link {
   animation: hero-rise 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.hero-in--1 { animation-delay: 0.04s; }
-.hero-in--2 { animation-delay: 0.12s; }
-.hero-in--3 { animation-delay: 0.2s; }
-.hero-in--4 { animation-delay: 0.28s; }
-.hero-in--5 { animation-delay: 0.36s; }
+.hero-in--1 {
+  animation-delay: 0.04s;
+}
+
+.hero-in--2 {
+  animation-delay: 0.12s;
+}
+
+.hero-in--3 {
+  animation-delay: 0.2s;
+}
+
+.hero-in--4 {
+  animation-delay: 0.28s;
+}
+
+.hero-in--5 {
+  animation-delay: 0.36s;
+}
 
 @keyframes hero-rise {
   to {
@@ -1235,6 +1257,7 @@ html.nav-open body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
