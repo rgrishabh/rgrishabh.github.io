@@ -11,7 +11,7 @@
   function syncMeta() {
     if (!meta) return;
     var light = root.getAttribute("data-theme") === "light";
-    meta.setAttribute("content", light ? "#f0f4fb" : "#060910");
+    meta.setAttribute("content", light ? "#f6f8fb" : "#08111f");
   }
 
   function setTheme(next) {

@@ -46,7 +46,7 @@
 
   var copyBtn = document.getElementById("copy-email");
   var copyStatus = document.getElementById("copy-status");
-  var emailAddr = "rgrishabh@yahoo.com";
+  var emailAddr = "rgrishabh03@gmail.com";
   if (copyBtn && copyStatus) {
     copyBtn.addEventListener("click", function () {
       function done(ok) {
