@@ -53,7 +53,7 @@ The workspace is organized with simplicity and zero build steps:
 ├── assets/
 │   ├── devops-logo.svg        # Custom premium 3D glowing infinity loop logo
 │   ├── aws-certified-saa-badge.png # SAA Badge
-│   └── Rishabh_DevOps_4.pdf   # Resumé download asset
+│   └── Rishabh_DevOps_4YOE.pdf   # Resumé download asset
 └── docs/
     └── STRUCTURE.md           # Developer onboarding folder guide
 ```

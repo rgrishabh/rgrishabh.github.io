@@ -22,7 +22,7 @@ This document describes how the portfolio repository is organized. The **publish
 ├── assets/
 │   ├── aws-certified-saa-badge.png
 │   ├── devops-logo.svg       # Custom modern 3D infinity loop logo
-│   └── Rishabh_DevOps_4.pdf  # CV download
+│   └── Rishabh_DevOps_4YOE.pdf  # CV download
 ├── docs/
 │   └── STRUCTURE.md          # This file
 └── .github/
