@@ -1,89 +1,90 @@
-# Cloud-Native DevOps Engineer Portfolio
+# Rishabh Gupta — DevOps Engineer Portfolio
 
-A high-performance, responsive, and visually stunning developer portfolio tailored for **Rishabh Gupta (Lead DevOps Engineer & AWS Solutions Architect)**. Built from the ground up to showcase container orchestration scale, automated CI/CD pipelines, production operations metrics, and enterprise-grade infrastructure systems.
+A high-performance, responsive portfolio for **Rishabh Gupta (Senior Software Engineer, DevOps | AWS Solutions Architect)** built to showcase cloud-native infrastructure work, production Kubernetes operations, CI/CD automation, and observability at scale.
 
 Live site: [rgrishabh.github.io](https://rgrishabh.github.io/)
 
 ---
 
-## 🚀 Key Product Features
+## 🚀 What's Inside
 
-### 1. Cloud-Native Design & Aesthetic
-- **Visual Excellence**: Crafted with dark and light themes using a professional HSL-based palette (deep space blue backgrounds, glowing cyan/green interactive accents, and glassmorphic cards).
-- **Responsive Bento Layout**: Incorporates high-density dashboard layouts containing metric highlights (MTTR, scale, developer velocity, experience tenure) for quick, impactful scanning.
-- **Custom Vector Branding**: Utilizes fully-custom SVG assets, including a premium 3D glowing infinity loop brandmark ([`assets/devops-logo.svg`](assets/devops-logo.svg)) and a matching optimized browser [favicon](favicon.svg) representing CI/CD.
+### Design & Aesthetic — "Terminal Ops" Theme
+- **DevOps-first palette**: Near-black terminal background (`#06090f`) with electric cyan (`#06b6d4`) primary accents and pipeline green (`#10b981`) — matching the visual language of Kubernetes dashboards and Grafana
+- **Cyan grid scanlines** + dual radial glows (cyan top-left, sky-blue top-right, green bottom) — ops console feel
+- **CI/CD Pipeline logo**: Custom SVG icon depicting a 3-stage pipeline (Source → Build → Deploy) with branch lines and a Kubernetes hexagon — used for both the browser tab favicon and the page header mark
+- **Dark / Light theme toggle** — both modes tuned to the DevOps colour system
 
-### 2. High-Performance Static Architecture
-- **Zero-Dependency Core**: Built using pure semantic HTML5, Vanilla CSS, and lightweight native JavaScript modules for sub-millisecond load times.
-- **Ultra-Light Footprint**: Avoids heavy utility frameworks (like Tailwind) and bulky bundlers, ensuring it remains fully server-independent and highly portable.
-- **SEO & Schema Integration**: Automatically implements SEO best practices, structural heading hierarchies, metadata tags, and standardized JSON-LD structured data schemas for high search-engine indexing.
+### Sections
+| Section | Content |
+|---|---|
+| **Hero** | Name, title, eyebrow label, contact strip, CTA buttons |
+| **Impact** | 4 metric cards — GitOps automation, K8s governance, observability, enterprise systems |
+| **Tools I work with** | 4 category cards (Cloud & Infra, Containers & Orchestration, CI/CD & GitOps, Monitoring) with text chips |
+| **Experience** | Chronological timeline — Tarento / Bhashini (Jul 2026–Present), Freelance, Persistent Systems |
+| **Credentials** | AWS SAA-C03 badge + education |
+| **Contact** | Email, LinkedIn, GitHub, phone |
 
-### 3. Accessible & Interactive Interface
-- **Mobile Navigation Drawer**: Highly accessible hamburger-toggle drawer featuring backdrop-overlay tap closures, screen-reader visibility landmarks (`aria-expanded`, `aria-hidden`), and Escape-key escape routes.
-- **Micro-Animations**: Features custom lazy scroll reveal hooks (`reveal.js`) and physics-based toggle feedback.
-- **Interactive Copy Utilities**: Integrated native clipboard manager allowing recruiters to copy contact details smoothly with dynamic status feedback.
+### Current Role
+- **Company**: [Tarento Group](https://www.tarento.com/)
+- **Title**: Senior Software Engineer, DevOps
+- **Client**: [Bhashini — Govt. of India](https://bhashini.gov.in/)
+- **Start**: July 2026 (Present)
+- **Stack**: Kubernetes · Yotta Cloud · ArgoCD · Jenkins · Docker · Prometheus · Grafana
 
 ---
 
-## 🛠️ Architecture & Tech Stack
-
-The workspace is organized with simplicity and zero build steps:
+## 🛠️ Tech Stack
 
 | Technology | Purpose |
-|------------|---------|
-| **HTML5 / JSON-LD** | Structure, accessibility landmarks, and search engine schema metadata. |
-| **Vanilla CSS** | Deep custom properties, layout logic, themes, and animations. |
-| **Vanilla JS** | Modular handlers for UI logic: theme, mobile nav, metrics, and reveals. |
-| **Vector (SVG)** | High-fidelity branding elements optimized for Retina/4K displays. |
+|---|---|
+| **HTML5 / JSON-LD** | Semantic structure, accessibility, SEO schema |
+| **Vanilla CSS** | Custom properties, dark/light themes, layout, animations |
+| **Vanilla JS** | Theme toggle, mobile nav, tenure metrics, clipboard, scroll reveals |
+| **SVG** | CI/CD pipeline favicon + logo, company logos (Tarento, Bhashini) |
 
-### Directory Hierarchy
+### File Structure
 
 ```
 .
-├── index.html                 # Main portfolio markup & semantic sections
-├── favicon.svg                # Modern high-density SVG brand favicon
+├── index.html                      # Main portfolio markup
+├── favicon.svg                     # CI/CD pipeline icon (browser tab)
 ├── css/
-│   └── styles.css             # Main styling, layout system & dark/light design tokens
+│   └── styles.css                  # Design tokens, layout, Terminal Ops theme
 ├── js/
-│   ├── theme-ui.js            # Theme controller (syncs preference, color meta, and footer)
-│   ├── nav-mobile.js          # Accessibility-compliant mobile navigation drawer
-│   ├── tenure.js              # Real-time metrics calculations (tenure and scale highlights)
-│   ├── clipboard.js           # Clipboard utility for direct email-copy triggers
-│   └── reveal.js              # IntersectionObserver-based lazy scroll animations
-├── assets/
-│   ├── devops-logo.svg        # Custom premium 3D glowing infinity loop logo
-│   ├── aws-certified-saa-badge.png # SAA Badge
-│   └── Rishabh_DevOps_4YOE.pdf   # Resumé download asset
-└── docs/
-    └── STRUCTURE.md           # Developer onboarding folder guide
+│   ├── theme-ui.js                 # Theme controller (dark/light sync)
+│   ├── nav-mobile.js               # Accessible mobile navigation drawer
+│   ├── tenure.js                   # Real-time tenure metric calculations
+│   ├── clipboard.js                # Email/phone clipboard copy utility
+│   └── reveal.js                   # IntersectionObserver scroll animations
+└── assets/
+    ├── devops-logo.svg             # CI/CD pipeline header logo
+    ├── company-logos/
+    │   ├── tarento.svg             # Tarento brand icon
+    │   ├── bhashini.svg            # Bhashini tricolor wheel (Govt. of India)
+    │   └── persistent.svg         # Persistent Systems logo
+    └── aws-certified-saa-badge.png # AWS SAA-C03 certification badge
 ```
 
 ---
 
 ## 💻 Local Preview
 
-Since the portfolio utilizes native ES modules and absolute asset routes, previewing it using a simple local HTTP server is recommended to avoid origin policy quirks:
-
 ```bash
-# Start a simple python HTTP server
-python3 -m http.server 8080
+python3 -m http.server 8000
 ```
 
-Once started, open [http://localhost:8080](http://localhost:8080) in your browser.
+Open [http://localhost:8000](http://localhost:8000) in your browser.
 
 ---
 
 ## ☁️ Deployment (GitHub Pages)
 
-This project is optimized for direct hosting on **GitHub Pages**:
-
-1. In the repository settings, go to **Settings → Pages**.
-2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
-3. Select the default branch (**`main`**) and set the folder path to **`/` (root)**.
-4. The site will compile and deploy automatically at `https://<username>.github.io/`.
+1. Go to **Settings → Pages**
+2. Source: **Deploy from a branch** → `main` → `/ (root)`
+3. Site auto-deploys at `https://rgrishabh.github.io/`
 
 ---
 
 ## 📄 License
 
-This repository is released under the [MIT License](LICENSE). Third-party certifications, logos, and fonts are the property of their respective owners.
+Released under the [MIT License](LICENSE). Third-party logos, certifications, and fonts are property of their respective owners.
