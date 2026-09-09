@@ -12,11 +12,11 @@ This document describes how the portfolio repository is organized. The **publish
 ├── .nojekyll                 # Let GitHub Pages serve static files unchanged
 ├── .gitignore
 ├── css/
-│   └── styles.css            # Global styles + light/dark tokens
+│   └── styles.css            # Design tokens, layout, AI-platform section, light/dark themes
 ├── js/
 │   ├── theme-ui.js           # Theme toggle, theme-color meta, copyright year
 │   ├── nav-mobile.js         # Hamburger menu (≤767px): open/close, backdrop, Escape
-│   ├── tenure.js             # Hero / bento / contact tenure strings
+│   ├── tenure.js             # Hero tenure string
 │   ├── clipboard.js          # Copy email + status message
 │   └── reveal.js             # IntersectionObserver scroll reveals
 ├── assets/

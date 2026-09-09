@@ -1,6 +1,6 @@
 # Rishabh Gupta — DevOps Engineer Portfolio
 
-A high-performance, responsive portfolio for **Rishabh Gupta (Senior Software Engineer, DevOps | AWS Solutions Architect)** built to showcase cloud-native infrastructure work, production Kubernetes operations, CI/CD automation, and observability at scale.
+A high-performance, responsive portfolio for **Rishabh Gupta (Senior Software Engineer, DevOps | AWS Solutions Architect)** built to showcase AI workload infrastructure, production Kubernetes operations, CI/CD automation, and observability at scale.
 
 Live site: [rgrishabh.github.io](https://rgrishabh.github.io/)
 
@@ -18,9 +18,10 @@ Live site: [rgrishabh.github.io](https://rgrishabh.github.io/)
 | Section | Content |
 |---|---|
 | **Hero** | Name, title, eyebrow label, contact strip, CTA buttons |
-| **Impact** | 4 metric cards — GitOps automation, K8s governance, observability, enterprise systems |
-| **Tools I work with** | 4 category cards (Cloud & Infra, Containers & Orchestration, CI/CD & GitOps, Monitoring) with text chips |
-| **Experience** | Chronological timeline — Tarento / Bhashini (Jul 2026–Present), Freelance, Persistent Systems |
+| **Impact** | 6 cards — AI inference on GPU K8s, GitOps automation, K8s governance, observability, enterprise systems, AI-assisted ops |
+| **AI platform** | Lead card on the Bhashini serving stack (models → serving → GPU compute → sovereign cloud → signals) plus GPU capacity, model-container delivery, and AI-assisted operations |
+| **Tools I work with** | 6 category cards (AI Infra & GPU Ops, AI-Assisted Engineering, Cloud & Infra, DevOps & CI/CD, Containers & IaC, Monitoring) with text chips |
+| **Experience** | Chronological timeline — Tarento / Bhashini (Jul 2026–Present), Persistent / Intuit, Payomatix, Freelance, Codewalla / 1Huddle, Purchasing Power |
 | **Credentials** | AWS SAA-C03 badge + education |
 | **Contact** | Email, LinkedIn, GitHub, phone |
 
@@ -29,7 +30,7 @@ Live site: [rgrishabh.github.io](https://rgrishabh.github.io/)
 - **Title**: Senior Software Engineer, DevOps
 - **Client**: [Bhashini — Govt. of India](https://bhashini.gov.in/)
 - **Start**: July 2026 (Present)
-- **Stack**: Kubernetes · Yotta Cloud · ArgoCD · Jenkins · Docker · Prometheus · Grafana
+- **Stack**: GPU-backed Kubernetes · Yotta sovereign cloud · ASR/TTS/NMT model serving · ArgoCD · Jenkins · Docker · Prometheus · Grafana
 
 ---
 
@@ -53,8 +54,8 @@ Live site: [rgrishabh.github.io](https://rgrishabh.github.io/)
 ├── js/
 │   ├── theme-ui.js                 # Theme controller (dark/light sync)
 │   ├── nav-mobile.js               # Accessible mobile navigation drawer
-│   ├── tenure.js                   # Real-time tenure metric calculations
-│   ├── clipboard.js                # Email/phone clipboard copy utility
+│   ├── tenure.js                   # Real-time tenure metric (hero)
+│   ├── clipboard.js                # Email clipboard copy utility
 │   └── reveal.js                   # IntersectionObserver scroll animations
 └── assets/
     ├── devops-logo.svg             # CI/CD pipeline header logo

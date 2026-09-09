@@ -1,11 +1,12 @@
 /**
- * Calendar tenure from an internal anchor (not shown in UI) → hero, bento, contact blurb.
+ * Calendar tenure from an internal anchor (not shown in UI) → hero metric.
  */
 (function () {
   "use strict";
 
-  function experienceSinceSept2021() {
-    var start = new Date(2021, 8, 1);
+  var CAREER_START = new Date(2021, 8, 1); // Sept 2021
+
+  function experienceSince(start) {
     var now = new Date();
     var y = now.getFullYear() - start.getFullYear();
     var m = now.getMonth() - start.getMonth();
@@ -30,20 +31,11 @@
     if (ym.months > 0) {
       parts.push(ym.months === 1 ? "1 month" : ym.months + " months");
     }
-    if (parts.length === 0) return "0 months";
-    return parts.join(" ");
+    return parts.length ? parts.join(" ") : "0 months";
   }
 
-  var exp = experienceSinceSept2021();
-  var expWords = formatExperienceWords(exp);
   var heroEl = document.getElementById("exp-hero");
-  var bentoY = document.getElementById("exp-bento-y");
-  var bentoM = document.getElementById("exp-bento-m");
-  var contactBlurb = document.getElementById("exp-contact-blurb");
-  if (heroEl) heroEl.textContent = expWords;
-  if (bentoY) bentoY.textContent = String(exp.years);
-  if (bentoM) bentoM.textContent = String(exp.months);
-  if (contactBlurb) {
-    contactBlurb.textContent = expWords + " in production-facing roles";
+  if (heroEl) {
+    heroEl.textContent = formatExperienceWords(experienceSince(CAREER_START));
   }
 })();
