@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Wide layout — let the page use the whole viewport on large screens.
+
+   Loaded last, and every rule is inside a min-width query except the shell
+   width itself, so phone and tablet layouts are untouched.
+
+   The principle: fill the extra space with more COLUMNS, not with longer
+   lines. Prose keeps a `ch`-based measure (the base stylesheet already caps
+   it) because a 1700px-wide paragraph is unreadable no matter how full the
+   page looks.
+   ========================================================================== */
+
+/* Shell: near-full width with a generous gutter, capped so ultrawide monitors
+   do not produce a 3000px header. Was min(1120px, 100% - 2rem). */
+.wrap {
+  width: min(1760px, calc(100% - clamp(1.5rem, 5vw, 5rem)));
+}
+
+/* ── 1200px: three-across impact, two-across skills ──────────────────────── */
+@media (min-width: 1200px) {
+  .impact-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .skill-grid  { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .metric-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* ── 1500px: the shell is genuinely wide, so add a column everywhere ─────── */
+@media (min-width: 1500px) {
+  .skill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  /* Give the sticky section head less of the row and the content more. */
+  .two-col { grid-template-columns: 0.58fr 1.42fr; gap: 2.5rem; }
+
+  /* Hero: a wider media column so the resume panel is not a narrow strip. */
+  .hero-grid { grid-template-columns: minmax(0, 1.12fr) minmax(420px, 0.88fr); }
+  .hero-copy { max-width: 820px; }
+
+  /* Timeline: wider date rail, and bullets in two columns so a long role
+     fills the row instead of trailing a 900px gap down the right-hand side. */
+  .timeline-item { grid-template-columns: 250px 1fr; }
+  .bullet-list { columns: 2; column-gap: 2.5rem; }
+  .bullet-list > li { break-inside: avoid; -webkit-column-break-inside: avoid; }
+
+  /* The lead AI card carries the most content — let it span two of three. */
+  .ai-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ai-card--lead { grid-column: span 2; grid-template-columns: 1.15fr 0.85fr; }
+
+  .contact-panel { grid-template-columns: 1fr 1fr; gap: 3rem; }
+}
+
+/* ── 1900px: one more column where the content supports it ───────────────── */
+@media (min-width: 1900px) {
+  .impact-grid  { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .section      { padding-block: clamp(4rem, 6vw, 7rem); }
+}
+
+/* Full-bleed strips: the ticker and the stat rail should touch both edges,
+   which is what actually reads as "the page fills the screen". */
+.marquee { width: 100%; }
+@media (min-width: 1200px) {
+  .stat-strip { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
