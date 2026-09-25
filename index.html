@@ -237,16 +237,57 @@
         </aside>
       </div>
 
-      <div class="wrap" style="margin-top:2.4rem;position:relative;z-index:1">
-        <div class="terminal tilt" role="img"
-             aria-label="A terminal showing inference pods running, an Argo CD sync reporting healthy, and a whoami that prints: rishabh, I keep the boring parts boring.">
-          <div class="terminal__bar" aria-hidden="true">
-            <span class="terminal__dot terminal__dot--r"></span>
-            <span class="terminal__dot terminal__dot--y"></span>
-            <span class="terminal__dot terminal__dot--g"></span>
-            <span class="terminal__title">rishabh@prod — zsh</span>
+      <div class="wrap console-wrap">
+        <div class="console" role="img"
+             aria-label="A mock operations console. A shell pane runs kubectl against the Bhashini inference namespace and an Argo CD sync that reports healthy, then a whoami printing: rishabh, I keep the boring parts boring. Beside it a telemetry pane shows GPU utilisation at 74 percent, memory at 61 percent, twelve of twelve pods running, p95 latency of 142 milliseconds and 99.9 percent uptime.">
+          <div class="console__bar" aria-hidden="true">
+            <span class="console__dots">
+              <span class="terminal__dot terminal__dot--r"></span>
+              <span class="terminal__dot terminal__dot--y"></span>
+              <span class="terminal__dot terminal__dot--g"></span>
+            </span>
+            <span class="console__tabs">
+              <span class="console__tab is-active">shell</span>
+              <span class="console__tab">bhashini-prod</span>
+              <span class="console__tab">argocd</span>
+            </span>
+            <span class="console__meta"><span class="status-dot"></span>connected</span>
           </div>
-          <div class="terminal__body" id="terminal-body" aria-hidden="true"></div>
+
+          <div class="console__grid">
+            <div class="console__pane console__pane--shell">
+              <div class="terminal__body" id="terminal-body" aria-hidden="true"></div>
+            </div>
+
+            <aside class="console__pane console__pane--telemetry" aria-hidden="true">
+              <p class="console__pane-title">cluster telemetry</p>
+
+              <div class="gauge">
+                <div class="gauge__head"><span>GPU utilisation</span><b data-gauge-val="74">0%</b></div>
+                <div class="gauge__track"><span class="gauge__fill" data-gauge="74"></span></div>
+              </div>
+              <div class="gauge">
+                <div class="gauge__head"><span>GPU memory</span><b data-gauge-val="61">0%</b></div>
+                <div class="gauge__track"><span class="gauge__fill gauge__fill--2" data-gauge="61"></span></div>
+              </div>
+              <div class="gauge">
+                <div class="gauge__head"><span>Node saturation</span><b data-gauge-val="38">0%</b></div>
+                <div class="gauge__track"><span class="gauge__fill gauge__fill--3" data-gauge="38"></span></div>
+              </div>
+
+              <p class="console__pane-title console__pane-title--sub">inference p95, last hour</p>
+              <svg class="spark" viewBox="0 0 220 46" preserveAspectRatio="none" focusable="false">
+                <polyline class="spark__line"
+                  points="0,34 18,29 36,32 54,22 72,26 90,17 108,21 126,12 144,19 162,10 180,15 198,8 220,13" />
+              </svg>
+
+              <ul class="console__pills">
+                <li><b>12/12</b><span>pods running</span></li>
+                <li><b>142ms</b><span>p95 latency</span></li>
+                <li><b>99.9%</b><span>uptime</span></li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </div>
     </section>

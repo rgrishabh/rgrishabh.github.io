@@ -31,7 +31,7 @@
     Array.prototype.forEach.call(staggers, function (el) { el.classList.add("is-in"); });
   }
 
-  if (reduce) { paintCounters(true); return; }
+  if (reduce) { paintCounters(true); paintTelemetry(true); return; }
 
   /* ------------------------------------------------------ scroll progress */
   var bar = document.querySelector(".scroll-progress");
@@ -123,20 +123,53 @@
   }
   paintCounters(false);
 
+  /* --------------------------------------------------- console telemetry */
+  function paintTelemetry(instant) {
+    var pane = document.querySelector(".console__pane--telemetry");
+    if (!pane) return;
+
+    var fire = function () {
+      Array.prototype.forEach.call(pane.querySelectorAll("[data-gauge]"), function (el) {
+        el.style.width = el.getAttribute("data-gauge") + "%";
+      });
+      Array.prototype.forEach.call(pane.querySelectorAll("[data-gauge-val]"), function (el) {
+        var target = parseInt(el.getAttribute("data-gauge-val"), 10);
+        if (instant) { el.textContent = target + "%"; return; }
+        var t0 = null;
+        var step = function (ts) {
+          if (!t0) t0 = ts;
+          var pr = Math.min((ts - t0) / 1500, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - pr, 3))) + "%";
+          if (pr < 1) window.requestAnimationFrame(step);
+        };
+        window.requestAnimationFrame(step);
+      });
+      var spark = pane.querySelector(".spark");
+      if (spark) spark.classList.add("is-in");
+    };
+
+    if (instant || typeof window.IntersectionObserver !== "function") { fire(); return; }
+    var go = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { go.disconnect(); fire(); }
+    }, { threshold: 0.35 });
+    go.observe(pane);
+  }
+  paintTelemetry(false);
+
   /* ---------------------------------------------------- typed terminal */
   var term = document.getElementById("terminal-body");
   if (term) {
     var script = [
-      { t: "$ ", c: "terminal__prompt", inst: true },
+      { t: "rishabh@prod ~/infra (main) \u276f ", c: "terminal__prompt", inst: true },
       { t: "kubectl get pods -n bhashini -l tier=inference\n", c: "" },
       { t: "asr-hi-7c9f   1/1   Running   0   6d\n", c: "terminal__dim", inst: true },
       { t: "tts-en-4b21   1/1   Running   0   6d\n", c: "terminal__dim", inst: true },
       { t: "nmt-22l-9ad   1/1   Running   0   6d\n\n", c: "terminal__dim", inst: true },
-      { t: "$ ", c: "terminal__prompt", inst: true },
+      { t: "rishabh@prod ~/infra (main) \u276f ", c: "terminal__prompt", inst: true },
       { t: "argocd app sync infrasight\n", c: "" },
       { t: "✔ Synced        revision 64133b7\n", c: "terminal__ok", inst: true },
       { t: "✔ Healthy       5/5 services\n\n", c: "terminal__ok", inst: true },
-      { t: "$ ", c: "terminal__prompt", inst: true },
+      { t: "rishabh@prod ~/infra (main) \u276f ", c: "terminal__prompt", inst: true },
       { t: "whoami\n", c: "" },
       { t: "rishabh — I keep the boring parts boring.\n", c: "terminal__ok", inst: true }
     ];

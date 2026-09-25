@@ -153,3 +153,86 @@ html[data-theme="light"] .spotlight {
   .stagger > * { opacity: 1; transform: none; transition: none; }
   .tilt, .magnetic { transition: none; }
 }
+
+/* ==========================================================================
+   Ops console — two-pane shell + telemetry. Replaces the plain terminal.
+   Decorative: the whole block is aria-hidden behind one descriptive label.
+   ========================================================================== */
+.console-wrap { margin-top: clamp(1.75rem, 4vw, 2.75rem); position: relative; z-index: 1; }
+
+.console {
+  border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  background: var(--surface-strong); box-shadow: var(--shadow);
+  font-family: var(--font-mono);
+}
+
+/* title bar */
+.console__bar {
+  display: flex; align-items: center; gap: 1rem;
+  padding: .6rem .9rem; border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.045), transparent);
+}
+.console__dots { display: inline-flex; gap: .4rem; flex: none; }
+.console__tabs { display: flex; gap: .3rem; overflow: hidden; }
+.console__tab {
+  padding: .22rem .62rem; border-radius: 6px; font-size: .71rem; white-space: nowrap;
+  color: var(--muted); border: 1px solid transparent;
+}
+.console__tab.is-active { color: var(--text); background: var(--surface); border-color: var(--line); }
+.console__meta {
+  margin-left: auto; display: inline-flex; align-items: center; gap: .45rem;
+  font-size: .71rem; color: var(--muted); white-space: nowrap;
+}
+
+/* panes */
+.console__grid { display: grid; }
+@media (min-width: 880px) {
+  .console__grid { grid-template-columns: minmax(0, 1.55fr) minmax(260px, .45fr); }
+  .console__pane--telemetry { border-left: 1px solid var(--line); border-top: 0 !important; }
+}
+.console__pane { padding: 1rem 1.15rem; min-width: 0; }
+.console__pane--shell { min-height: 270px; font-size: .82rem; line-height: 1.75; }
+.console__pane--telemetry { border-top: 1px solid var(--line); background: rgba(255,255,255,.012); }
+
+.console__pane-title {
+  margin: 0 0 .85rem; font-size: .67rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+}
+.console__pane-title--sub { margin-top: 1.35rem; }
+
+/* gauges */
+.gauge { margin-bottom: .85rem; }
+.gauge__head { display: flex; justify-content: space-between; align-items: baseline; font-size: .73rem; color: var(--soft); margin-bottom: .34rem; }
+.gauge__head b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+.gauge__track { height: 5px; border-radius: 99px; background: var(--surface); overflow: hidden; border: 1px solid var(--line); }
+.gauge__fill {
+  display: block; height: 100%; width: 0; border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-3));
+  transition: width 1.5s cubic-bezier(.22,.8,.2,1);
+}
+.gauge__fill--2 { background: linear-gradient(90deg, var(--accent-3), var(--accent-2)); }
+.gauge__fill--3 { background: linear-gradient(90deg, var(--accent-2), var(--accent)); }
+
+/* sparkline */
+.spark { width: 100%; height: 46px; display: block; overflow: visible; }
+.spark__line {
+  fill: none; stroke: var(--accent-2); stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 460; stroke-dashoffset: 460;
+}
+.spark.is-in .spark__line { animation: draw 1.8s cubic-bezier(.3,.7,.3,1) forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+/* pills */
+.console__pills { list-style: none; margin: 1.15rem 0 0; padding: 0; display: grid; gap: .5rem; }
+.console__pills li {
+  display: flex; justify-content: space-between; align-items: baseline; gap: .6rem;
+  padding: .5rem .7rem; border: 1px solid var(--line); border-radius: 9px; background: var(--surface);
+}
+.console__pills b { color: var(--text); font-size: .88rem; font-variant-numeric: tabular-nums; }
+.console__pills span { color: var(--muted); font-size: .68rem; letter-spacing: .05em; text-transform: uppercase; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gauge__fill { transition: none; }
+  .spark__line { stroke-dashoffset: 0; }
+  .spark.is-in .spark__line { animation: none; }
+}
