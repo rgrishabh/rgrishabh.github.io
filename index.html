@@ -15,20 +15,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rishabh Gupta | Lead DevOps Engineer</title>
   <meta name="description"
-    content="Rishabh Gupta is a Lead DevOps Engineer and AWS Certified Solutions Architect who runs AI inference workloads on GPU-backed Kubernetes, plus GitOps, CI/CD, observability, and incident response." />
+    content="Rishabh Gupta is a Lead DevOps Engineer, AWS Certified Solutions Architect and MBA (Finance &amp; IT) who runs AI inference workloads on GPU-backed Kubernetes, plus GitOps with Argo CD, CI/CD, observability, and incident response." />
+  <link rel="canonical" href="https://www.rgrishabh.in/" />
   <meta name="author" content="Rishabh Gupta" />
   <meta name="keywords"
-    content="Rishabh Gupta, Lead DevOps Engineer, AI Infrastructure, GPU Kubernetes, MLOps, AWS Solutions Architect, Kubernetes, GitOps, CI/CD, Terraform, Observability, Noida" />
+    content="Rishabh Gupta, Lead DevOps Engineer, AI Infrastructure, GPU Kubernetes, MLOps, AWS Solutions Architect, Kubernetes, GitOps, Argo CD, Kustomize, Jenkins, CI/CD, Terraform, Observability, MBA Finance and IT, Noida" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://rgrishabh.github.io/" />
+  <meta property="og:url" content="https://www.rgrishabh.in/" />
   <meta property="og:title" content="Rishabh Gupta | Lead DevOps Engineer" />
   <meta property="og:description"
     content="DevOps portfolio for AI inference on GPU Kubernetes, AWS, GitOps, CI/CD, observability, and production operations." />
-  <meta property="og:image" content="https://rgrishabh.github.io/assets/og-image.png" />
+  <meta property="og:image" content="https://www.rgrishabh.in/assets/og-image.png" />
 
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://rgrishabh.github.io/" />
+  <meta property="twitter:url" content="https://www.rgrishabh.in/" />
   <meta property="twitter:title" content="Rishabh Gupta | Lead DevOps Engineer" />
   <meta property="twitter:description"
     content="Lead DevOps Engineer and AWS Solutions Architect running AI inference platforms and cloud-native delivery systems." />
@@ -39,6 +40,20 @@
       "@type": "Person",
       "name": "Rishabh Gupta",
       "jobTitle": "Lead DevOps Engineer",
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Lovely Professional University",
+          "description": "MBA, Finance and Information Technology (2026); B.Tech, Computer Science and Engineering (2022)"
+        }
+      ],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "degree",
+        "educationalLevel": "Master of Business Administration",
+        "about": "Finance and Information Technology",
+        "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Lovely Professional University" }
+      },
       "email": "mailto:rgrishabh@icloud.com",
       "telephone": "+91 7007554304",
       "address": {
@@ -47,7 +62,7 @@
         "addressRegion": "Uttar Pradesh",
         "addressCountry": "IN"
       },
-      "url": "https://rgrishabh.github.io/",
+      "url": "https://www.rgrishabh.in/",
       "sameAs": [
         "https://www.linkedin.com/in/rgrishabh",
         "https://github.com/rgrishabh"
@@ -62,7 +77,15 @@
         "CI/CD",
         "Terraform",
         "Observability",
-        "Incident Management"
+        "Incident Management",
+        "Argo CD",
+        "Kustomize",
+        "Helm",
+        "Jenkins",
+        "NGINX",
+        "TLS Automation",
+        "Finance",
+        "Cloud Cost Optimisation"
       ]
     }
   </script>
@@ -88,10 +111,13 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/motion.css" />
 </head>
 
 <body>
   <div class="site-bg" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="spotlight" aria-hidden="true"></div>
 
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="site-header">
@@ -106,6 +132,7 @@
         <a href="#impact">Impact</a>
         <a href="#ai">AI platform</a>
         <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#credentials">Credentials</a>
         <a href="#contact">Contact</a>
@@ -141,10 +168,18 @@
 
   <main id="main">
     <section class="hero" id="top">
+      <div class="aurora" aria-hidden="true">
+        <span class="aurora__blob aurora__blob--a"></span>
+        <span class="aurora__blob aurora__blob--b"></span>
+        <span class="aurora__blob aurora__blob--c"></span>
+      </div>
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow hero-in hero-in--1">Lead DevOps Engineer | AI Infrastructure | AWS Solutions Architect</p>
-          <h1 class="hero-title hero-in hero-in--2">Rishabh Gupta</h1>
+          <p class="hero-in hero-in--1" style="margin-bottom:.9rem">
+            <span class="status-chip"><span class="status-dot" aria-hidden="true"></span>Currently keeping GPUs busy at Bhashini</span>
+          </p>
+          <p class="eyebrow hero-in hero-in--1">Lead DevOps Engineer | AI Infrastructure | AWS Solutions Architect | MBA</p>
+          <h1 class="hero-title hero-in hero-in--2"><span class="grad-text">Rishabh Gupta</span></h1>
           <p class="hero-statement hero-in hero-in--3">I build the quiet parts behind reliable software — including the
             GPU platforms that AI models actually run on.</p>
           <p class="lede hero-in hero-in--3">
@@ -152,8 +187,8 @@
             speech and translation AI models for a national platform.
           </p>
           <div class="hero-actions hero-in hero-in--4">
-            <a class="btn btn-primary" href="assets/Rishabh_DevOps_4YOE.pdf" download>Download Resume</a>
-            <a class="btn btn-secondary" href="#experience">View experience</a>
+            <a class="btn btn-primary magnetic" href="assets/Rishabh_DevOps_4YOE.pdf" download>Download Resume</a>
+            <a class="btn btn-secondary magnetic" href="#experience">View experience</a>
           </div>
           <ul class="contact-strip hero-in hero-in--5" aria-label="Contact details">
             <li>Noida, Uttar Pradesh</li>
@@ -200,6 +235,56 @@
           </div>
         </aside>
       </div>
+
+      <div class="wrap" style="margin-top:2.4rem;position:relative;z-index:1">
+        <div class="terminal tilt" role="img"
+             aria-label="A terminal showing inference pods running, an Argo CD sync reporting healthy, and a whoami that prints: rishabh, I keep the boring parts boring.">
+          <div class="terminal__bar" aria-hidden="true">
+            <span class="terminal__dot terminal__dot--r"></span>
+            <span class="terminal__dot terminal__dot--y"></span>
+            <span class="terminal__dot terminal__dot--g"></span>
+            <span class="terminal__title">rishabh@prod — zsh</span>
+          </div>
+          <div class="terminal__body" id="terminal-body" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span class="marquee__item">Kubernetes</span><span class="marquee__item">GPU scheduling</span>
+          <span class="marquee__item">Argo CD</span><span class="marquee__item">GitOps</span>
+          <span class="marquee__item">Jenkins</span><span class="marquee__item">Terraform</span>
+          <span class="marquee__item">AWS</span><span class="marquee__item">Docker</span>
+          <span class="marquee__item">Prometheus</span><span class="marquee__item">Grafana</span>
+          <span class="marquee__item">Kustomize</span><span class="marquee__item">Helm</span>
+          <span class="marquee__item">Ansible</span><span class="marquee__item">Linux</span>
+          <span class="marquee__item">Let&rsquo;s Encrypt</span><span class="marquee__item">NGINX</span>
+        </div>
+        <div class="marquee__group">
+          <span class="marquee__item">Kubernetes</span><span class="marquee__item">GPU scheduling</span>
+          <span class="marquee__item">Argo CD</span><span class="marquee__item">GitOps</span>
+          <span class="marquee__item">Jenkins</span><span class="marquee__item">Terraform</span>
+          <span class="marquee__item">AWS</span><span class="marquee__item">Docker</span>
+          <span class="marquee__item">Prometheus</span><span class="marquee__item">Grafana</span>
+          <span class="marquee__item">Kustomize</span><span class="marquee__item">Helm</span>
+          <span class="marquee__item">Ansible</span><span class="marquee__item">Linux</span>
+          <span class="marquee__item">Let&rsquo;s Encrypt</span><span class="marquee__item">NGINX</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="section section-compact reveal" aria-label="Career numbers">
+      <div class="wrap">
+        <div class="stat-strip">
+          <div class="stat"><span class="stat__num" data-count="4.6" data-dec="1" data-unit="+">0</span><span class="stat__label">Years shipping</span></div>
+          <div class="stat"><span class="stat__num" data-count="10" data-dec="0" data-unit="M+">0</span><span class="stat__label">Users served</span></div>
+          <div class="stat"><span class="stat__num" data-count="99.9" data-dec="1" data-unit="%">0</span><span class="stat__label">Uptime held</span></div>
+          <div class="stat"><span class="stat__num" data-count="60" data-dec="0" data-unit="%">0</span><span class="stat__label">Faster releases</span></div>
+          <div class="stat"><span class="stat__num" data-count="15" data-dec="0" data-unit=" min">0</span><span class="stat__label">MTTR, down from 45</span></div>
+        </div>
+      </div>
     </section>
 
     <section class="section section-compact reveal" id="impact" aria-labelledby="impact-heading">
@@ -210,7 +295,7 @@
           <p>Measurable results from AI inference platforms, cloud infrastructure, fintech systems, and enterprise
             engineering tooling.</p>
         </header>
-        <div class="impact-grid">
+        <div class="impact-grid stagger">
           <article class="impact-card">
             <span>01</span>
             <h3>AI inference on GPU Kubernetes</h3>
@@ -356,7 +441,7 @@
           <p>A production-heavy toolkit across AI workload infrastructure, AWS architecture, delivery automation,
             containers, infrastructure as code, monitoring, incident management, and Linux operations.</p>
         </header>
-        <div class="skill-grid">
+        <div class="skill-grid stagger">
           <article class="skill-block skill-block--accent">
             <h3>AI infrastructure and GPU ops</h3>
             <ul class="chips">
@@ -415,6 +500,42 @@
               <li>GitHub</li>
               <li>Gradle</li>
               <li>Maven</li>
+            </ul>
+          </article>
+          <article class="skill-block">
+            <h3>GitOps and platform delivery</h3>
+            <ul class="chips">
+              <li>Argo CD</li>
+              <li>Kustomize</li>
+              <li>Helm</li>
+              <li>Jenkins multibranch</li>
+              <li>Jenkins Config as Code</li>
+              <li>Kaniko</li>
+              <li>containerd</li>
+              <li>Private registries</li>
+              <li>Progressive rollouts</li>
+            </ul>
+          </article>
+          <article class="skill-block">
+            <h3>Edge, TLS and DNS</h3>
+            <ul class="chips">
+              <li>NGINX reverse proxy</li>
+              <li>TLS termination</li>
+              <li>Let&rsquo;s Encrypt / certbot</li>
+              <li>Automated renewal</li>
+              <li>HSTS</li>
+              <li>DNS operations</li>
+              <li>WebSocket and gRPC-Web proxying</li>
+            </ul>
+          </article>
+          <article class="skill-block">
+            <h3>Business and finance</h3>
+            <ul class="chips">
+              <li>MBA &mdash; Finance &amp; IT</li>
+              <li>Cloud cost optimisation</li>
+              <li>Capacity planning</li>
+              <li>Vendor evaluation</li>
+              <li>Stakeholder communication</li>
             </ul>
           </article>
           <article class="skill-block">
@@ -632,13 +753,58 @@
       </div>
     </section>
 
+    <section class="section reveal" id="projects" aria-labelledby="projects-heading">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Built and running</p>
+          <h2 id="projects-heading">Things I ship outside work hours</h2>
+          <p>A self-hosted platform I designed, built, and operate end to end &mdash; the same discipline as day
+            job work, with nobody else to hand the pager to.</p>
+        </header>
+        <div class="project-grid stagger">
+          <article class="project-card tilt">
+            <p class="project-card__tag">Product &middot; self-hosted</p>
+            <h3>InfraSight</h3>
+            <p>Endpoint and SSL certificate monitoring: a FastAPI service and an independent check worker sharing
+              one image, Postgres for history, Redis for rate limiting, and a React dashboard. Incidents only open
+              after a failure is confirmed from a second network vantage point, so a bad path from one host does
+              not page anyone at 3am.</p>
+            <ul class="chips chips--sm">
+              <li>FastAPI</li><li>PostgreSQL</li><li>Redis</li><li>React</li><li>Alembic</li><li>Playwright</li>
+            </ul>
+          </article>
+          <article class="project-card tilt">
+            <p class="project-card__tag">Platform &middot; GitOps</p>
+            <h3>Single-node Kubernetes platform</h3>
+            <p>Jenkins, Argo CD, the Kubernetes Dashboard and InfraSight running on one small cloud box behind
+              NGINX, each on its own hostname with automated TLS. Manifests live in a Git repo as a Kustomize base
+              plus per-environment overlays; Argo CD reconciles, so a rollback is a revert rather than an
+              archaeology exercise.</p>
+            <ul class="chips chips--sm">
+              <li>Argo CD</li><li>Kustomize</li><li>Helm</li><li>NGINX</li><li>Let&rsquo;s Encrypt</li><li>containerd</li>
+            </ul>
+          </article>
+          <article class="project-card tilt">
+            <p class="project-card__tag">Delivery &middot; CI/CD</p>
+            <h3>Multibranch pipeline with a GitOps handoff</h3>
+            <p>A Jenkins multibranch pipeline builds container images and deploys by committing the new tag to the
+              manifest repo &mdash; CI never touches the cluster. Main goes to production; every other branch gets its
+              own namespace and overlay, generated on first build.</p>
+            <ul class="chips chips--sm">
+              <li>Jenkins</li><li>JCasC</li><li>Multibranch</li><li>Kaniko</li><li>Private registry</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section reveal" id="credentials" aria-labelledby="credentials-heading">
       <div class="wrap">
         <header class="section-head">
           <p class="eyebrow">Background</p>
           <h2 id="credentials-heading">Certification and education</h2>
         </header>
-        <div class="credentials-grid">
+        <div class="credentials-grid stagger">
           <article class="credential-card credential-card--cert">
             <p class="credential-label">Certification</p>
             <div class="credential-cert">
@@ -662,6 +828,15 @@
           <article class="credential-card">
             <p class="credential-label">Education</p>
             <ul class="education-list">
+              <li>
+                <div class="education-row">
+                  <div>
+                    <span class="education-degree">MBA, Finance and Information Technology</span>
+                    <span class="education-meta">Lovely Professional University</span>
+                  </div>
+                  <span class="education-year">2026</span>
+                </div>
+              </li>
               <li>
                 <div class="education-row">
                   <div>
@@ -723,8 +898,8 @@
             <span>GitHub</span>
             <strong>github.com/rgrishabh</strong>
           </a>
-          <button type="button" class="btn btn-secondary" id="copy-email">Copy email</button>
-          <a class="btn btn-primary" href="assets/Rishabh_DevOps_4YOE.pdf" download>Download Resume</a>
+          <button type="button" class="btn btn-secondary magnetic" id="copy-email">Copy email</button>
+          <a class="btn btn-primary magnetic" href="assets/Rishabh_DevOps_4YOE.pdf" download>Download Resume</a>
         </div>
       </div>
     </section>
@@ -733,7 +908,7 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <p>© <span id="year"></span> Rishabh Gupta</p>
-      <p>Lead DevOps Engineer | AI Infrastructure | AWS | Kubernetes | GitOps</p>
+      <p>Lead DevOps Engineer | AI Infrastructure | AWS | Kubernetes | GitOps | MBA Finance &amp; IT</p>
     </div>
   </footer>
 
@@ -742,6 +917,7 @@
   <script src="js/tenure.js"></script>
   <script src="js/clipboard.js"></script>
   <script src="js/reveal.js"></script>
+  <script src="js/motion.js"></script>
 
 </body>
 
